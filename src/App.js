@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+//Liberias
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import routes from './config/routes';
 
-function App() {
+function App(){
+  return(
+    <Router>
+      <Switch>
+        {routes.map((route,index)=>{
+          <RouteWithSubRoutes key={index}{...route}/>
+        })}
+      </Switch>
+    </Router>
+  );
+}
+
+
+
+function RouteWithSubRoutes(route){  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Funcionó XD
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Route
+      path = {route.path}
+      exact = {route.exact}
+      render = {props=><route.component routes={route.routes} {...props}/>}
+    />  
   );
 }
 
