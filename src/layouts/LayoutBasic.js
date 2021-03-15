@@ -1,6 +1,6 @@
 //Liberías
 import React from 'react';
-import {Layout, Row, Col, Menu} from 'antd';
+import {Layout, Row, Col} from 'antd';
 import {Route,Switch} from 'react-router-dom';
 
 

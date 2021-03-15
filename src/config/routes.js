@@ -3,32 +3,20 @@ import LayoutBasic from '../layouts/LayoutBasic'
 
 //Pages
 import Home from '../pages/Home';
-import Error from '../pages/Error';
+import Error404 from '../pages/Error';
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     //Esto es un array de objetos, la primera pos son las rutas de admin la segunda de users
     {
         path: "/home",
         component: LayoutBasic,
-        exact: false,//No es true porque dentro de el tenemos otras rutas, si lo fuera no cargaría las subrutas
+        exact: true,//No es true porque dentro de el tenemos otras rutas, si lo fuera no cargaría las subrutas
         routes:[//Esto es porque de admin tenemos otras rutas, esto permite cargar las otras rutas
             {
-                component: Error//Siempre va de ultimo y va sin path porque no sabemos que path pondrá el user   
-            }
-        ]
-    },
-    {
-        path: "/",//Aquí pasa lo mismo con el path, es falso porque dentro de este tenemos otras rutas
-        exact: false,
-        component: LayoutBasic,
-        routes:[
-            {
-                path: "/",
-                exact: true,
-                component: Home
+                component: Home//Siempre va de ultimo y va sin path porque no sabemos que path pondrá el user   
             },
             {
-                component: Error
+                component: Error404
             }
         ]
     }
