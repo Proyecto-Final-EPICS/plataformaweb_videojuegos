@@ -16,13 +16,13 @@ export default function LayoutBasic({routes}){
             <Row>
                 <Col md={4}/> 
                 <Col md={16}>
-                    <MenuTop/>
+                    <h1>XD</h1>
                 </Col>
                 <Col md={4}/>
             </Row>
             <LoadRoutes routes={routes} />
             <Footer style={{ textAlign: 'center' }}>
-                Partners Campus Uninorte
+              Proyecto EPICS IEEE
             </Footer>
         </>
     )

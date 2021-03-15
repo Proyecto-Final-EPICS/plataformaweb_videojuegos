@@ -4,8 +4,8 @@ import React from 'react';
 
 export default function Home(){
     return(
-        <>
-            <h1>HOLA</h1>
-        </>
+        <div>
+            <h1>Estamos en Home</h1>
+        </div>
     );
 }
