@@ -11,14 +11,19 @@ import routes from './config/routes';
 //Estilos
 import './App.scss';
 
+// import Home from './pages/Home';
 
 function App(){
   return(
     <Router>
       <Switch>
-        {routes.map((route,index)=>{
+        {routes.map((route,index)=>(
           <RouteWithSubRoutes key={index}{...route}/>
-        })}
+        ))}
+    
+        {/* <Route path="/home" exact={true} component={Home}/> */}
+        
+
       </Switch>
     </Router>
   );
@@ -29,6 +34,8 @@ function App(){
 
 //Renderiza ruta padre y pasa rutas hijas al componente
 function RouteWithSubRoutes(route){  
+  // console.log(route);
+  // return true;
   return (
     <Route
       path = {route.path}

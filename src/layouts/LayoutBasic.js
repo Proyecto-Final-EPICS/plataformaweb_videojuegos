@@ -8,7 +8,6 @@ import {Route,Switch} from 'react-router-dom';
 import "./LayoutBasic.scss";
 
 export default function LayoutBasic(){
-    const { Footer } = Layout; 
 
     return(
        <Layout>
@@ -18,17 +17,3 @@ export default function LayoutBasic(){
 }
 
 
-function LoadRoutes({routes}){
-    return(
-        <Switch>
-            {routes.map((route,index)=>(
-            <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
-            />
-        ))}
-        </Switch>
-    );
-}
