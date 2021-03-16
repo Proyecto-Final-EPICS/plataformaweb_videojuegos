@@ -1,6 +1,10 @@
 //Liberias
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+
+
+//Fichero de configuración de rutas
 import routes from './config/routes';
 
 
@@ -22,6 +26,8 @@ function App(){
 
 
 
+
+//Renderiza ruta padre y pasa rutas hijas al componente
 function RouteWithSubRoutes(route){  
   return (
     <Route
