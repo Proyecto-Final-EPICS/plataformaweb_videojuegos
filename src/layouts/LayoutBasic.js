@@ -1,7 +1,9 @@
 //Liberías
 import React from 'react';
-import {Layout,Row, Col} from 'antd';
+import { Layout } from 'antd';
 import {Route,Switch} from 'react-router-dom';
+
+
 
 
 //Estilos
@@ -11,6 +13,8 @@ export default function LayoutBasic(props){
     const { routes } = props;
     const { Header , Content, Footer } = Layout;
     
+   
+
     return(
 
         <Layout>

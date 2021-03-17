@@ -1,2 +1,2 @@
-export const basePath = "http://localhost/api:5000";
-export const apiVerion = "v1";
+export const basePath = "http://localhost:5000";
+export const apiVersion = "v1";
