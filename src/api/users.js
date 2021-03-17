@@ -1,7 +1,7 @@
 import {basePath, apiVersion} from './config';
 
 export function prueba(){
-    const url = `${basePath}/hola`;
+    const url = `${basePath}/get-students`;
     const params = {
         method: "GET",
         headers:{

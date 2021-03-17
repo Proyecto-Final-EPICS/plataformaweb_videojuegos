@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
 //Componentes
 
@@ -8,15 +8,18 @@ import {prueba} from '../../api/users';
 
 export default function Home(){
 
-    const algo = () =>{
-        prueba();
-    }
-
-
+    const [variable,funcion] = useState([]);  
+    
+    useEffect(()=>{
+        prueba().then(response => {
+            funcion(response);
+        })
+    },[]);
+    
     return(
         <div>
             <h1>Estamos en Home</h1>
-            {algo()}
+            <p>Lo que me traje es {variable.map(xd => <div>{xd.Nombre_Estudiante}</div>)} </p>
         </div>
     );
 }
