@@ -20,10 +20,6 @@ function App(){
         {routes.map((route,index)=>(
           <RouteWithSubRoutes key={index}{...route}/>
         ))}
-    
-        {/* <Route path="/home" exact={true} component={Home}/> */}
-        
-
       </Switch>
     </Router>
   );
@@ -34,13 +30,11 @@ function App(){
 
 //Renderiza ruta padre y pasa rutas hijas al componente
 function RouteWithSubRoutes(route){  
-  // console.log(route);
-  // return true;
   return (
     <Route
       path = {route.path}
       exact = {route.exact}
-      render = {props=><route.component routes={route.routes} {...props}/>}
+      render = {props=><route.component routes={route.routes} {...props}/>}/*Se usa render porque va a renderizar otras rutas*/ 
     />  
   );
 }
