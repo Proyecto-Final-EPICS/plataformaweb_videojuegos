@@ -8,12 +8,12 @@ export function prueba(){
             "Content-Type":"application/json"
         }
     };
-
     return fetch(url,params)
     .then(response =>{
         return response.json();
     })
     .then(result =>{
+        console.log(result);
         return result;
     })
     .catch(err =>{
