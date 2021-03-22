@@ -1,20 +1,26 @@
 //Layouts
 import LayoutBasic from '../layouts/LayoutBasic'
 
-//Pages
+//Pages for everybody
+import Login from '../pages/Login';
+
+//Pages Professor
 import Home from '../pages/Home';
 import Error404 from '../pages/Error';
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     {
-        path: "/home",
+        path: "/",
         component: LayoutBasic,
         exact: false,
         routes:[
             {
-                path: "/home",
-                component: Home,
+                path: "/",
+                component: Login,
                 exact: true
+            },
+            {
+                component: Error404
             }
         ]
     }

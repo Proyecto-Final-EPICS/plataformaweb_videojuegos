@@ -14,7 +14,8 @@ export default function Home(){
 
     useEffect(()=>{
         prueba().then(response =>{
-           funcion(response[0].developedGames[0].topic)
+           funcion(response[0].developedGames[0].developer.schoolName)
+           console.log(response);
         })
     },[]);
     
