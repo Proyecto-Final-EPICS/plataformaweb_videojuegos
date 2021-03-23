@@ -18,13 +18,14 @@ export default function LayoutBasic(props){
     return(
 
         <Layout>
-           <h2>Profesores</h2>
            <Layout>
                 <Header> Header...</Header>
                 <Content>
                     <LoadRouters routes={routes}/>
                 </Content>
-                <Footer>Footer..</Footer>   
+                <Footer style={{textAlign: 'center'}} className="layout-basic__footer">
+                    EPICS IEEE    
+                </Footer>   
            </Layout>
        </Layout>
 
