@@ -1,8 +1,10 @@
 //Liberías
 import React from 'react';
 import { Layout, Tabs} from 'antd';
-import { Redurect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
+//Componentes
+import LoginForm from '../../components/General/LoginForm';
 
 //Estilos
 import './Login.scss';
@@ -23,7 +25,7 @@ export default function Login(){
               <div className="sign-in__content-tabs">
                   <Tabs type="card">
                       <TabPane tab={<span>Entrar</span>} key="1">
-                        <h1>xD</h1>
+                        <LoginForm/>
                       </TabPane>
                   </Tabs>
               </div>
