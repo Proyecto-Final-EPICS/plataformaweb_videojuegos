@@ -24,9 +24,15 @@ export default function Login(){
               </h1>
               <div className="sign-in__content-tabs">
                   <Tabs type="card">
+                      
                       <TabPane tab={<span>Entrar</span>} key="1">
                         <LoginForm/>
                       </TabPane>
+
+                      <TabPane tab={<span>Entrar</span>} key="2">
+                        <LoginForm/>
+                      </TabPane>
+                    
                   </Tabs>
               </div>
           </Content>

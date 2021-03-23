@@ -11,18 +11,8 @@ import Error404 from '../pages/Error';
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     {
         path: "/",
-        component: LayoutBasic,
-        exact: false,
-        routes:[
-            {
-                path: "/",
-                component: Login,
-                exact: true
-            },
-            {
-                component: Error404
-            }
-        ]
+        component: Login,
+        exact: true
     }
 ];
 

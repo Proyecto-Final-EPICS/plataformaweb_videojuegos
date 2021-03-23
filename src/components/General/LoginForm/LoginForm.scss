@@ -7,6 +7,7 @@
     }
 
     &__input{
+        
         .ant-input-prefix{
             margin: 4px 7px 2px 1px;
             svg{
@@ -15,7 +16,7 @@
         }
 
         input{
-            font-size: 0em + 22px/ $defaultFontSize;
+            font-size: 0em + 22px / $defaultFontSize;
             
             &:focus{
                 border-color: $primary-color;
