@@ -13,6 +13,21 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
         path: "/",
         component: Login,
         exact: true
+    },
+    {
+        path: "/home",
+        component: LayoutBasic,
+        exact: false,
+        routes:[
+            {
+                path: "/home",
+                component: Home,
+                exact: true
+            }
+        ]
+    },
+    {
+        component: Error404
     }
 ];
 

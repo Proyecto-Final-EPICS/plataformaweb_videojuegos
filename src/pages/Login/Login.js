@@ -1,6 +1,6 @@
 //Liberías
 import React from 'react';
-import { Layout, Tabs, Row,Col} from '../../../node_modules/antd';
+import { Layout,Row,Col} from '../../../node_modules/antd';
 import { Redirect } from 'react-router-dom';
 
 //Componentes
@@ -14,7 +14,7 @@ import Logo from '../../assets/img/palanca-de-mando.png';
 
 export default function Login(){
     const { Content } = Layout;
-    const { TabPane } = Tabs;
+  
 
     return(
       <Layout className="sign-in">

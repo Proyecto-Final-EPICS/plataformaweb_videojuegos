@@ -4,6 +4,8 @@ import { Layout } from 'antd';
 import {Route,Switch} from 'react-router-dom';
 
 
+//Componentes
+import MenuTop from '../components/General/MenuTop';
 
 
 //Estilos
@@ -19,12 +21,15 @@ export default function LayoutBasic(props){
 
         <Layout>
            <Layout className="layout-admin">
+               <Header className="layout-admin__header">
+                  <MenuTop/>
+               </Header>
                 <Content className="layout-admin__content">
                     <LoadRouters routes={routes}/>
                 </Content>
-                {/* <Footer style={{textAlign: 'center'}} className="layout-basic__footer">
+                <Footer style={{textAlign: 'center'}} className="layout-basic__footer">
                     EPICS IEEE    
-                </Footer>    */}
+                </Footer>   
            </Layout>
        </Layout>
 
