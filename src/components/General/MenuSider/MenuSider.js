@@ -21,6 +21,14 @@ function MenuSider(props){
                         <span className="nav-text">Home</span>
                     </Link>
                 </Menu.Item>
+
+                <Menu.Item key="/home/sessions">
+                    <Link to={"/home/sessions"}>
+                        <SolutionOutlined />
+                        <span className="nav-text">Sesiones</span>
+                    </Link>
+                </Menu.Item>
+
             </Menu>
             
         </Sider>

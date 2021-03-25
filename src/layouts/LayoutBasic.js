@@ -41,15 +41,18 @@ export default function LayoutBasic(props){
 function LoadRouters(props){
     const { routes } = props;
 
-    return routes.map((route,index) => (
-        
-        <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.component} /*Se usa component porque estos componentes no llevan a otras rutas*/ 
-        />
-    ));
+    return(
+        <Switch>
+            {routes.map((route,index) =>(
+                <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                />
+            ))}
+        </Switch>
+    );
    
 }
 

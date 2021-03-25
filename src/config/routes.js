@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 
 //Pages Professor
 import Home from '../pages/Home';
+import Sessions from '../pages/Professor/Sessions';
 import Error404 from '../pages/Error';
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
@@ -23,10 +24,17 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                 path: "/home",
                 component: Home,
                 exact: true
+            },
+            {
+                path:"/home/sessions",
+                component: Sessions,
+                exact: true
+            },
+            {
+                component: Error404
             }
         ]
-    },
-    {
+    },{
         component: Error404
     }
 ];
