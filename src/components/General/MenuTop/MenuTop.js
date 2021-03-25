@@ -14,7 +14,9 @@ import logo from '../../../assets/img/palanca-de-mando.png';
 
 
 
-export default function MenuTop(){
+export default function MenuTop(props){
+    const {menuCollapsed, setMenuCollapsed} = props;
+
     return(
         <div className="menu-top">
             <Link to="/home">
@@ -24,6 +26,9 @@ export default function MenuTop(){
                     alt="logo joystick"
                 />
             </Link>
+            <Button type="link" onClick={() => setMenuCollapsed(!menuCollapsed)} >
+                {menuCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+            </Button>
         </div>
     );
 }

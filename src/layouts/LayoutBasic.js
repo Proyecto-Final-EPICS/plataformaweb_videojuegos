@@ -1,12 +1,12 @@
 //Liberías
-import React from 'react';
-import { Layout } from 'antd';
+import React,{useState} from 'react';
+import { Layout, Menu } from 'antd';
 import {Route,Switch} from 'react-router-dom';
 
 
 //Componentes
 import MenuTop from '../components/General/MenuTop';
-
+import MenuSider from '../components/General/MenuSider';
 
 //Estilos
 import "./LayoutBasic.scss";
@@ -14,15 +14,17 @@ import "./LayoutBasic.scss";
 export default function LayoutBasic(props){
     const { routes } = props;
     const { Header , Content, Footer } = Layout;
-    
+    const [menuCollapsed,setMenuCollapsed] = useState(false); //Para desplegar el menu
    
 
     return(
 
         <Layout>
-           <Layout className="layout-admin">
+           <MenuSider menuCollapsed={menuCollapsed}/>
+           <Layout className="layout-admin" style={{ marginLeft: menuCollapsed ? "80px" : "200px"}}>
                <Header className="layout-admin__header">
-                  <MenuTop/>
+                  <MenuTop menuCollapsed= {menuCollapsed}
+                  setMenuCollapsed = {setMenuCollapsed} />
                </Header>
                 <Content className="layout-admin__content">
                     <LoadRouters routes={routes}/>
