@@ -1,11 +1,12 @@
 import {basePath} from './config';
 
 export function getSessionsApi(nameGame){
-    const url = `${basePath}/getSessionGamesByGame`;
+    const url = `${basePath}/getSessionGamesByGame/${nameGame}`;
     const params = {
         method: "GET",
-        body: JSON.stringify(nameGame)
-        
+        headers: {
+            "Content-Type": "application/json"
+        }
     }
     
     return fetch(url,params)
