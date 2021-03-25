@@ -1,6 +1,6 @@
 //Liberías
 import React from 'react';
-import { Layout, Tabs} from '../../../node_modules/antd';
+import { Layout, Tabs, Row,Col} from '../../../node_modules/antd';
 import { Redirect } from 'react-router-dom';
 
 //Componentes
@@ -23,13 +23,17 @@ export default function Login(){
                   <img src={Logo} alt="Logo joystick"/>
               </h1>
 
-              <div className="sign-in__content-tabs">
-                  <Tabs type="card">
-                      
-                      <TabPane tab="Entrar" key="1">
-                        <LoginForm/>
-                      </TabPane>
-                  </Tabs>
+              <div className="sign-in__content-form">
+                  <Row>
+                    <Col span={24}>
+                     <h1 className="sign-in__content-form-titulo">Ingresar</h1>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={24}>
+                      <LoginForm/>
+                    </Col>
+                  </Row>
               </div>    
           </Content>
       </Layout>
