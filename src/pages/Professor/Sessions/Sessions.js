@@ -13,11 +13,10 @@ export default function Sessions(){
     useEffect(()=>{
         getSessionsApi("Nombre_Juego").then(response => {
             setSessions(response);
-            console.log(response);
         });
-        
     },[])
-
+    console.log("Esta es la sessions",sessions);
+   
     return(
         <div className="sessions">
             <Table
