@@ -1,6 +1,7 @@
 //Liberias
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import "antd/dist/antd.css";
 
 
 
