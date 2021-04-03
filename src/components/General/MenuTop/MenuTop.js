@@ -17,6 +17,9 @@ import logo from '../../../assets/img/palanca-de-mando.png';
 export default function MenuTop(props){
     const {menuCollapsed, setMenuCollapsed} = props;
 
+    const logoutUser =  () => {
+        window.location.href="/";
+    }
     return(
         <div className="menu-top">
             <Link to="/home">
@@ -30,7 +33,7 @@ export default function MenuTop(props){
                 {menuCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
             </Button>
             <div className="menu-top__right">
-                <Button type="link" > {/* onClick={logoutUser}*/}
+                <Button type="link" onClick={logoutUser}> 
                     <PoweroffOutlined/>
                 </Button>
             </div>
