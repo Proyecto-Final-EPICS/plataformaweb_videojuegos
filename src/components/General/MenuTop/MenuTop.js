@@ -29,6 +29,13 @@ export default function MenuTop(props){
             <Button type="link" onClick={() => setMenuCollapsed(!menuCollapsed)} >
                 {menuCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
             </Button>
+            <div className="menu-top__right">
+                <Button type="link" > {/* onClick={logoutUser}*/}
+                    <PoweroffOutlined/>
+                </Button>
+            </div>
+
         </div>
+        
     );
 }
