@@ -54,6 +54,11 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                 exact: true
             },
             {
+                path: "/admin-home/colegios",
+                component: AdminHome,
+                exact: true 
+            },
+            {
                 component: Error404
             }
         ]

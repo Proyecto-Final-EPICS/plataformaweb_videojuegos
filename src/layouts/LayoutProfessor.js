@@ -3,6 +3,8 @@ import React from 'react';
 import { Layout, Menu } from 'antd';
 import {Route,Switch} from 'react-router-dom';
 
+//Componentes
+import MenuTop from '../components/Professor/MenuTop';
 
 //Estilos
 import './LayoutProfessor.scss';
@@ -15,7 +17,7 @@ export default function LayoutProfessor(props){
         <Layout>
             <Layout className="layout-professor">
                 <Header className="layout-professor__header">
-                    <h1>Soy cabecera</h1>
+                   <MenuTop/>
                 </Header>
                 <Content className="layout-professor__content">
                     <LoadRoutes routes={routes}/>

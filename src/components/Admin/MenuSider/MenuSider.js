@@ -15,17 +15,17 @@ function MenuSider(props){
     return(
         <Sider className="admin-sider" collapsed={menuCollapsed}>
             <Menu mode="inline" defaultSelectedKeys={[location.pathname]}>
-                <Menu.Item key="/home">
-                    <Link to={"/home"}>
+                <Menu.Item key="/admin-home">
+                    <Link to={"/admin-home"}>
                         <HomeOutlined />
                         <span className="nav-text">Home</span>
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key="/home/sessions">
-                    <Link to={"/home/sessions"}>
+                <Menu.Item key="/admin-home/colegios">
+                    <Link to={"/admin-home/colegios"}>
                         <SolutionOutlined />
-                        <span className="nav-text">Sesiones</span>
+                        <span className="nav-text">Colegios</span>
                     </Link>
                 </Menu.Item>
 

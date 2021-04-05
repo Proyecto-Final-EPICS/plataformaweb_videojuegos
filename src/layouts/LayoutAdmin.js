@@ -5,8 +5,8 @@ import {Route,Switch} from 'react-router-dom';
 
 
 //Componentes
-import MenuTop from '../components/General/MenuTop';
-import MenuSider from '../components/General/MenuSider';
+import MenuTop from '../components/Admin/MenuTop';
+import MenuSider from '../components/Admin/MenuSider';
 
 //Estilos
 import "./LayoutAdmin.scss";
