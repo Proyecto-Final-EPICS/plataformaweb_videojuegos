@@ -1,7 +1,7 @@
 //Librerías
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import {Route,Switch} from 'react-router-dom';
+import { Layout, Row, Col, Breadcrumb } from 'antd';
+import {Route,Switch,Link} from 'react-router-dom';
 
 //Componentes
 import MenuTop from '../components/Professor/MenuTop';
@@ -11,6 +11,7 @@ import './LayoutProfessor.scss';
 
 export default function LayoutProfessor(props){
     const {Header,Content,Footer} = Layout;
+    
     const { routes } = props;
 
     return(
@@ -19,8 +20,15 @@ export default function LayoutProfessor(props){
                 <Header className="layout-professor__header">
                    <MenuTop/>
                 </Header>
-                <Content className="layout-professor__content">
-                    <LoadRoutes routes={routes}/>
+                <Content>
+                    <Row className="layout-professor__breadcrumbs"> 
+                        <Col span={24}>
+                            <LoadBreadcrumb routes={routes}/>
+                        </Col>
+                    </Row>
+                    <div className="layout-professor__content">
+                        <LoadRoutes routes={routes}/>
+                    </div>
                 </Content>
                 <Footer style={{textAlign:'center'}}className="layout-professor__footer">
                     <span> &copy; EPICS IEEE</span>
@@ -29,6 +37,21 @@ export default function LayoutProfessor(props){
         </Layout>
     );
 }
+
+function LoadBreadcrumb({routes}){
+    return(
+        <Breadcrumb>
+            {routes.map((route,index)=>(
+                <Breadcrumb.Item key={index}>
+                   <Link to={route.path}>
+                     {route.path}
+                   </Link>
+                </Breadcrumb.Item>
+            ))}
+        </Breadcrumb>
+    );
+}
+
 
 function LoadRoutes({routes}){
     return(
