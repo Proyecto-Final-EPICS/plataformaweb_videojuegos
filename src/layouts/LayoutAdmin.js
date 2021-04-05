@@ -9,7 +9,7 @@ import MenuTop from '../components/General/MenuTop';
 import MenuSider from '../components/General/MenuSider';
 
 //Estilos
-import "./LayoutBasic.scss";
+import "./LayoutAdmin.scss";
 
 export default function LayoutBasic(props){
     const { routes } = props;

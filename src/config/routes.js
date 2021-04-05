@@ -1,5 +1,5 @@
 //Layouts
-import LayoutBasic from '../layouts/LayoutBasic'
+import LayoutAdmin from '../layouts/LayoutAdmin'
 
 //Pages for everybody
 import Login from '../pages/Login';
@@ -17,7 +17,7 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     },
     {
         path: "/home",
-        component: LayoutBasic,
+        component: LayoutAdmin,
         exact: false,
         routes:[
             {
