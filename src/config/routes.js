@@ -4,10 +4,14 @@ import LayoutAdmin from '../layouts/LayoutAdmin'
 //Pages for everybody
 import Login from '../pages/Login';
 
+//Pages Admin
+import AdminHome from '../pages/AdminHome';
+
+
 //Pages Professor
-import Home from '../pages/Home';
 import Sessions from '../pages/Professor/Sessions';
 import Error404 from '../pages/Error';
+import LayoutProfessor from '../layouts/LayoutProfessor';
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     {
@@ -17,12 +21,12 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     },
     {
         path: "/home",
-        component: LayoutAdmin,
+        component: LayoutProfessor,
         exact: false,
         routes:[
             {
                 path: "/home",
-                component: Home,
+                component: AdminHome,
                 exact: true
             },
             {

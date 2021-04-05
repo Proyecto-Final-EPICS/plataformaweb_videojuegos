@@ -1,7 +1,7 @@
 //Liberías
 import React from 'react';
 import { Layout,Row,Col} from '../../../node_modules/antd';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 
 //Componentes
 import LoginForm from '../../components/General/LoginForm';
@@ -14,7 +14,18 @@ import Logo from '../../assets/img/palanca-de-mando.png';
 
 export default function Login(){
     const { Content } = Layout;
-  
+    const location = useLocation().pathname;
+    console.log(location);
+    
+    const getLocation = () =>{
+      if (location === "/admin"){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+ 
 
     return(
       <Layout className="sign-in">
@@ -26,7 +37,7 @@ export default function Login(){
               <div className="sign-in__content-form">
                   <Row>
                     <Col span={24}>
-                     <h1 className="sign-in__content-form-titulo">Ingresar</h1>
+                     <h1 className="sign-in__content-form-titulo">{getLocation ? "Ingresar" : "Ingresar como administrador"}</h1>
                     </Col>
                   </Row>
                   <Row>
