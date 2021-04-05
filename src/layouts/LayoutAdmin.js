@@ -11,7 +11,7 @@ import MenuSider from '../components/General/MenuSider';
 //Estilos
 import "./LayoutAdmin.scss";
 
-export default function LayoutBasic(props){
+export default function LayoutAdmin(props){
     const { routes } = props;
     const { Header , Content, Footer } = Layout;
     const [menuCollapsed,setMenuCollapsed] = useState(false); //Para desplegar el menu

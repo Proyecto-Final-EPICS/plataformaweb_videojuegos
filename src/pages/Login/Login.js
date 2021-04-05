@@ -18,7 +18,7 @@ export default function Login(){
     console.log(location);
     
     const getLocation = () =>{
-      if (location === "/admin"){
+      if (location.localeCompare("/admin")){
         return true;
       }else{
         return false;
@@ -37,7 +37,7 @@ export default function Login(){
               <div className="sign-in__content-form">
                   <Row>
                     <Col span={24}>
-                     <h1 className="sign-in__content-form-titulo">{getLocation ? "Ingresar" : "Ingresar como administrador"}</h1>
+                     <h1 className="sign-in__content-form-titulo">{{getLocation} ? "Ingresar como administrador" : "Ingresar"}</h1>
                     </Col>
                   </Row>
                   <Row>

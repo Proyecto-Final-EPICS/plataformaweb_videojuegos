@@ -7,8 +7,9 @@ import {Route,Switch} from 'react-router-dom';
 //Estilos
 import './LayoutProfessor.scss';
 
-export default function LayoutProfessor(){
+export default function LayoutProfessor(props){
     const {Header,Content,Footer} = Layout;
+    const { routes } = props;
 
     return(
         <Layout>
@@ -17,12 +18,27 @@ export default function LayoutProfessor(){
                     <h1>Soy cabecera</h1>
                 </Header>
                 <Content className="layout-professor__content">
-                    <h1>Soy Content</h1>
+                    <LoadRoutes routes={routes}/>
                 </Content>
                 <Footer style={{textAlign:'center'}}className="layout-professor__footer">
                     <span> &copy; EPICS IEEE</span>
                 </Footer>
             </Layout>
         </Layout>
+    );
+}
+
+function LoadRoutes({routes}){
+    return(
+        <Switch>
+            {routes.map((route,index)=>(
+                <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                />
+            ))}
+        </Switch>
     );
 }

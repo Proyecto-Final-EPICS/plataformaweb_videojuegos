@@ -1,8 +1,11 @@
 //Layouts
-import LayoutAdmin from '../layouts/LayoutAdmin'
+import LayoutAdmin from '../layouts/LayoutAdmin';
+import LayoutProfessor from '../layouts/LayoutProfessor';
+
 
 //Pages for everybody
 import Login from '../pages/Login';
+import Error404 from '../pages/Error';
 
 //Pages Admin
 import AdminHome from '../pages/AdminHome';
@@ -10,8 +13,8 @@ import AdminHome from '../pages/AdminHome';
 
 //Pages Professor
 import Sessions from '../pages/Professor/Sessions';
-import Error404 from '../pages/Error';
-import LayoutProfessor from '../layouts/LayoutProfessor';
+import ProfessorHome from '../pages/ProfessorHome';
+
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     {
@@ -26,19 +29,36 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
         routes:[
             {
                 path: "/home",
-                component: AdminHome,
+                component: ProfessorHome,
                 exact: true
             },
             {
-                path:"/home/sessions",
-                component: Sessions,
+                component: Error404
+            }
+           
+        ]
+    },
+    {
+        path: "/admin",
+        component: Login,
+        exact: true
+    },
+    {
+        path: "/admin-home",
+        component: LayoutAdmin,
+        exact: false,
+        routes:[
+            {
+                path: "/admin-home",
+                component: AdminHome,
                 exact: true
             },
             {
                 component: Error404
             }
         ]
-    },{
+    },
+    {
         component: Error404
     }
 ];
