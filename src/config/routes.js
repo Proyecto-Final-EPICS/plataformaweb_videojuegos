@@ -14,6 +14,7 @@ import AdminHome from '../pages/Admin/AdminHome';
 //Pages Professor
 import Sessions from '../pages/Professor/Sessions';
 import ProfessorHome from '../pages/Professor/ProfessorHome';
+import Colegios from '../pages/Professor/Colegios';
 
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
@@ -30,6 +31,11 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
             {
                 path: "/home",
                 component: ProfessorHome,
+                exact: true
+            },
+            {
+                path: "/home/colegios",
+                component: Colegios,
                 exact: true
             },
             {

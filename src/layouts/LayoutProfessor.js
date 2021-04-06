@@ -1,8 +1,8 @@
 //Librerías
 import React from 'react';
 import { Layout, Row, Col, Breadcrumb } from 'antd';
-import {Route,Switch,Link} from 'react-router-dom';
-
+import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom';
+import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 //Componentes
 import MenuTop from '../components/Professor/MenuTop';
 
@@ -22,9 +22,7 @@ export default function LayoutProfessor(props){
                 </Header>
                 <Content>
                     <Row className="layout-professor__breadcrumbs"> 
-                        <Col span={24}>
-                            <LoadBreadcrumb routes={routes}/>
-                        </Col>
+                        
                     </Row>
                     <div className="layout-professor__content">
                         <LoadRoutes routes={routes}/>
@@ -38,19 +36,7 @@ export default function LayoutProfessor(props){
     );
 }
 
-function LoadBreadcrumb({routes}){
-    return(
-        <Breadcrumb>
-            {routes.map((route,index)=>(
-                <Breadcrumb.Item key={index}>
-                   <Link to={route.path}>
-                     {route.path}
-                   </Link>
-                </Breadcrumb.Item>
-            ))}
-        </Breadcrumb>
-    );
-}
+
 
 
 function LoadRoutes({routes}){
