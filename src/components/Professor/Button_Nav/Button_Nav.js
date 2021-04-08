@@ -19,11 +19,6 @@ export default function Button_Nav(){
                 </Button>
             </Link>
 
-            <Link to= {"/home/estudiantes"}>
-                <Button type="primary" icon={<BankOutlined />} >
-                    Estudiantes
-                </Button>
-            </Link>
 
         </div>
     );

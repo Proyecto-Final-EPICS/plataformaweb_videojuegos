@@ -2,9 +2,9 @@
 import React from 'react';
 import { Layout, Row, Col, Breadcrumb } from 'antd';
 import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom';
-import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 //Componentes
 import MenuTop from '../components/Professor/MenuTop';
+import Breadcrumbs from '../components/Professor/Breadcrumbs';
 
 //Estilos
 import './LayoutProfessor.scss';
@@ -22,7 +22,7 @@ export default function LayoutProfessor(props){
                 </Header>
                 <Content>
                     <Row className="layout-professor__breadcrumbs"> 
-                        
+                        <Breadcrumbs/>
                     </Row>
                     <div className="layout-professor__content">
                         <LoadRoutes routes={routes}/>
@@ -35,8 +35,6 @@ export default function LayoutProfessor(props){
         </Layout>
     );
 }
-
-
 
 
 function LoadRoutes({routes}){
