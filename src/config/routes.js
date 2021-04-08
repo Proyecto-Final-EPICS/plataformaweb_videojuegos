@@ -41,7 +41,7 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                                    
             },
             {
-                path: "/home/colegios/colegio",
+                path: "/home/colegios/:colegio",
                 component: Colegio,
                 exact: true
             },

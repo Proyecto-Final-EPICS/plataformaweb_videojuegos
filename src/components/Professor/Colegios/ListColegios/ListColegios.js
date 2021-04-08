@@ -12,7 +12,6 @@ import './ListColegios.scss';
 
 export default function ListColegios(props){
     const {colegios} = props;
-    console.log(colegios);
     return(
         <div className="list-colegios">
             <Colegios colegios={colegios}/>
@@ -30,7 +29,6 @@ function Colegios(props){
             dataSource={colegios}
             renderItem={colegio => <Colegio
                 colegio = {colegio}
-            
             />}
         
         />
@@ -39,11 +37,11 @@ function Colegios(props){
 
 function Colegio(props){
     const {colegio} = props;
-
+    console.log(colegio);
     return(
         <List.Item
             actions={[
-                <Link to ="/home/colegios/colegio">
+                <Link to ={`/home/colegios/${colegio.schoolName}`}>
                     <Button type="primary"> 
                         Entrar
                     <CaretUpOutlined />
