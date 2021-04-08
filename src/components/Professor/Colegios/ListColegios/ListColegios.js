@@ -2,6 +2,7 @@
 import React from 'react';
 import {List,Button} from 'antd';
 import {CaretUpOutlined} from '@ant-design/icons';
+import {Link} from 'react-router-dom';
 
 
 
@@ -42,10 +43,13 @@ function Colegio(props){
     return(
         <List.Item
             actions={[
-                <Button type="primary"> 
-                    Entrar
+                <Link to ="/home/colegios/colegio">
+                    <Button type="primary"> 
+                        Entrar
                     <CaretUpOutlined />
-                </Button>
+                    </Button>
+                </Link>
+               
             ]}
         
         

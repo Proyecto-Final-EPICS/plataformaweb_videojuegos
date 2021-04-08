@@ -26,12 +26,10 @@ export default function Colegios(){
 
     return(
         <div>
-            <h1>Vista colegio profesores</h1>
+            <h1>Colegios registrados</h1>
             <ListColegios 
                 colegios={colegios}
-            
             />
-        
         </div>
         
     );
