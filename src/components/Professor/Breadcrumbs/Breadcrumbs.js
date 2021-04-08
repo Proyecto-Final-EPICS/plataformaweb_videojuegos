@@ -9,10 +9,9 @@ import './Breadcrumbs.scss';
 
 const Breadcrumbs = ({breadcrumbs}) =>  (
     <div className="breadcrumbs">
-        { console.log(breadcrumbs)}
         {breadcrumbs.map(({ breadcrumb, match }, index) => (
             <div className="bc" key={match.url}>
-                <Link to={match.url || ""}>{breadcrumb}</Link>
+                <Link to={match.url}>{breadcrumb}</Link>
                 {index < breadcrumbs.length - 1 && ">"}
             </div>
          ))}
@@ -20,4 +19,6 @@ const Breadcrumbs = ({breadcrumbs}) =>  (
     </div>
 
 );
+
+
 export default withBreadcrumbs()(Breadcrumbs);

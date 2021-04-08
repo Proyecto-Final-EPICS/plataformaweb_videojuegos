@@ -1,4 +1,4 @@
-import {basePath, apiVersion} from './config';
+import {basePath} from './config';
 
 export function prueba(){
     const url = `${basePath}/get-students`;
