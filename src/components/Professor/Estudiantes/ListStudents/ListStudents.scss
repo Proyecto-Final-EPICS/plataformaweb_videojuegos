@@ -1,1 +1,14 @@
 @import '../../../../scss//index.scss';
+
+.list-students{
+    background: rgba(228, 225, 225, 0.5);
+    box-shadow: 60px black;
+    padding: 2px;
+    margin-bottom: 2px;
+    
+}
+
+.ant-list-item{
+    display: flex;
+    justify-content: space-between;
+}

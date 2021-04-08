@@ -8,10 +8,11 @@ import {Link} from 'react-router-dom';
 import './ListStudents.scss';
 
 export default function ListStudents(props){
-    //const [students] = props;
-    console.log(props);
+    const {students} = props;
     return(
-        <h1>Lista de estudiantes</h1>
+      <div className="list-students">
+          <Students students={students}/>
+      </div>
     );
 }
 
@@ -19,6 +20,10 @@ export default function ListStudents(props){
 
 function Students(props){
     const {students} = props;
+    console.log(props);
+
+
+
     return(
         
         <List
@@ -26,7 +31,9 @@ function Students(props){
             itemLayout= "horizontal"
             dataSource={students}
             renderItem={student => <Student
-                student = {student}
+                student = {student.foreach(s => {
+                    return s
+                })}
             />}
         
         />
@@ -38,6 +45,10 @@ function Students(props){
 
 function Student(props){
     const {student} = props;
+    console.log(student);
+  
+    
+
     return(
         <List.Item
             actions={[
@@ -50,11 +61,16 @@ function Student(props){
         
         
         >
-            {/* <List.Item.Meta
+            <List.Item.Meta
                 title={`
-                    ${colegio.schoolName}
+                    ${
+                        student.studentName
+                    }
+                    ${
+                        student.age
+                    }
                 `}
-            /> */}
+            />
         </List.Item>
     );
 }

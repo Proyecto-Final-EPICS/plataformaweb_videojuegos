@@ -4,7 +4,7 @@ import {basePath} from './config';
 
 //Endpoint para traer todos los colegios
 export function getColegiosApi(){
-    const url = `${basePath}/getSchoolsDateils`;
+    const url = `${basePath}/getSchoolsDetails`;
     const params = {
         method: 'GET',
         headers: {
@@ -27,7 +27,7 @@ export function getColegiosApi(){
 
 //Endpoint para traer colegio dado un nombre
 export function getEstudiantesByColegio(name){
-    const url = `${basePath}/getStudents/${name}`;
+    const url = `${basePath}/getStudents?nameSchool=${name}`;
     const params = {
         method: 'GET',
         headers: {
