@@ -32,7 +32,7 @@ function Breadcrumbs(breadcrumbs){
 function LoadBreadcrumbs(breadcrumbs){
     const bcs = breadcrumbs.breadcrumbs.breadcrumbs;
     bcs.splice(0,1);
-   console.log(bcs); 
+    
   
     return(
         <div className="breadcrumbs">
