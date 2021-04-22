@@ -42,7 +42,7 @@ function Student(props) {
     return (
         <List.Item
             actions={[
-                <Link to ={`/home/colegios/${colegio}/${student.studentName}`} >
+                <Link to ={`/home/colegios/${colegio}/${student.studentName}-${student.username}`} >
                     <Button type="primary">
                      Entrar
                     </Button>
@@ -55,6 +55,8 @@ function Student(props) {
                     ${student.studentName
                     }
                     ${student.age
+                    }
+                    ${student.username
                     }
                 `}
             />
