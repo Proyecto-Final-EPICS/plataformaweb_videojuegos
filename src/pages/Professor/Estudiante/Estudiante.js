@@ -5,6 +5,7 @@ import {useLocation} from 'react-router-dom';
 
 //Componentes
 //import MenuSider from '../../../components/Professor/MenuSider';
+import ListSessions from '../../../components/Professor/Sessions';
 
 //API
 import {getSessionsByStudentUserNameApi} from '../../../api/sessions';
@@ -20,7 +21,7 @@ export default function Estudiante(){
 
     useEffect(()=>{
         getSessionsByStudentUserNameApi(username).then(response =>{
-          console.log(response);
+          setSessions(response);
         })
     },[])
     return(
@@ -29,7 +30,7 @@ export default function Estudiante(){
                 <MenuSider/>
             </Sider> */}
             <Content>
-                Informacion del estudiante
+                <ListSessions sessions={sessions}/>
             </Content>
         </Layout>
     );
