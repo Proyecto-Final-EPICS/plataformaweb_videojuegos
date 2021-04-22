@@ -37,7 +37,7 @@ function Colegios(props){
 
 function Colegio(props){
     const {colegio} = props;
-    console.log(props);
+    // console.log(props);
     return(
         <List.Item
             actions={[

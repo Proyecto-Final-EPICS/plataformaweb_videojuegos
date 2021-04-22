@@ -1,73 +1,57 @@
 //Liberías
 import React from 'react';
-import {List,Button} from 'antd';
-import {Link} from 'react-router-dom';
+import { List, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 
 //Estilos
 import './ListStudents.scss';
 
-export default function ListStudents(props){
-    const {students} = props;
-    return(
-      <div className="list-students">
-          <Students students={students}/>
-      </div>
-    );
+export default function ListStudents(props) {
+    const { students } = props;
+    if (props.students == "Failed to fetch") {
+        console.log("No hay datos");
+        return "No Hay Estudiantes Registrados Aún";
+    } else {
+        return (
+            <div className="list-students">
+                <Students students={students} />
+            </div>
+        );
+    }
 }
 
-
-
-function Students(props){
-    const {students} = props;
+function Students(props) {
+    const { students } = props;
     console.log(props);
-
-
-
-    return(
-        
+    return (
         <List
-            className= "colegios"
-            itemLayout= "horizontal"
+            className="colegios"
+            itemLayout="horizontal"
             dataSource={students}
             renderItem={student => <Student
-                student = {student.foreach(s => {
-                    return s
-                })}
+                student={student}
             />}
-        
         />
     );
 }
 
-
-
-
-function Student(props){
-    const {student} = props;
-    console.log(student);
-  
-    
-
-    return(
+function Student(props) {
+    const { student } = props;
+    console.log(student.studentName);
+    return (
         <List.Item
             actions={[
-                <Button type="primary"> 
+                <Button type="primary">
                     Entrar
                 </Button>
-                
-               
             ]}
-        
-        
         >
             <List.Item.Meta
                 title={`
-                    ${
-                        student.studentName
+                    ${student.studentName
                     }
-                    ${
-                        student.age
+                    ${student.age
                     }
                 `}
             />
