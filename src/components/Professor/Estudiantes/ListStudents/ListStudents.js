@@ -1,7 +1,7 @@
 //Liberías
 import React from 'react';
 import { List, Button } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 //Estilos
@@ -23,7 +23,7 @@ export default function ListStudents(props) {
 
 function Students(props) {
     const { students } = props;
-    console.log(props);
+    const location = useLocation().pathname.split("/")[3];
     return (
         <List
             className="colegios"
@@ -31,20 +31,23 @@ function Students(props) {
             dataSource={students}
             renderItem={student => <Student
                 student={student}
+                colegio={location}
             />}
         />
     );
 }
 
 function Student(props) {
-    const { student } = props;
-    console.log(student.studentName);
+    const { student,colegio } = props;
     return (
         <List.Item
             actions={[
-                <Button type="primary">
-                    Entrar
-                </Button>
+                <Link to ={`/home/colegios/${colegio}/${student.studentName}`} >
+                    <Button type="primary">
+                     Entrar
+                    </Button>
+                </Link>
+               
             ]}
         >
             <List.Item.Meta

@@ -15,7 +15,6 @@ import './Colegio.scss';
 export default function Colegio(){
     const {colegio} = useParams();
     const [students,setStudents] = useState([]);
-    // console.log(colegio);
 
     useEffect(()=>{
         getEstudiantesByColegio(colegio).then(response =>{
