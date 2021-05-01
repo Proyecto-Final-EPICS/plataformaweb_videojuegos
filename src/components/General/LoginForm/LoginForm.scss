@@ -58,16 +58,17 @@
 
         
         &:hover{
-            background: $primary-color-hover;
+            background:$background-light;
+            color: $background-orange;
             
         }
 
-        &:focus,
-        &:active{
-            background-color: $primary-color;
-            color: $font-light;
-            border: 0;
-        }
+        // &:focus,
+        // &:active{
+        //     background-color: $font-light;
+        //     color: $background-orange ;
+        //     border: 0;
+        // }
     }
 
 }
