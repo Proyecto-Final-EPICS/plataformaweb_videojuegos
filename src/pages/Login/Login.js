@@ -27,7 +27,7 @@ export default function Login(){
               <div className="sign-in__content-form">
                   <Row>
                     <Col span={24}>
-                     <h1 className="sign-in__content-form-titulo">Ingresar</h1>
+                     <h1 className="sign-in__content-form-titulo">LOGIN</h1>
                     </Col>
                   </Row>
                   <Row>

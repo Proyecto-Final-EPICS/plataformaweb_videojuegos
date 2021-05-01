@@ -41,9 +41,10 @@ export default function LoginForm(){
 
     return(
         <Form className="login-form" onChange={changeForm} onFieldsChange={login}>
+            
             <Form.Item>
                 <Input
-                    prefix={<UserOutlined style={{color:"rgba(0,0,0,0.25)"}}/>}
+                    prefix={<UserOutlined/>}
                     type="text"
                     name="username"
                     placeholder="Usuario"
@@ -53,7 +54,7 @@ export default function LoginForm(){
 
             <Form.Item>
                 <Input
-                    prefix={<LockOutlined style={{color:"rgba(0,0,0,0.25)"}}/>}
+                    prefix={<LockOutlined />}
                     type="password"
                     name="password"
                     placeholder="Contraseña"
@@ -63,7 +64,7 @@ export default function LoginForm(){
 
             <Form.Item>
                 <Button htmlType="submit" className="login-form__button">
-                    Entrar
+                    Ingresar
                 </Button>
             </Form.Item>
 

@@ -1,7 +1,7 @@
 $defaultFontSize: 16px;
 
 $primary-color: #0098d3;
-$primary-color-hover: #0280b3;
+$primary-color-hover: #fda218d8;
 
 $menu-color:#252527;
 
@@ -13,16 +13,14 @@ $font-grey-dark: #000000;
 $font-dark-light:#252527;
 $font-dark:"";
 $font-parterns1: #716b5d;
+$font-purple-dark: #4D3B6A;
+$font-input: #DAC9FF;
 
-//Borders
-$border-light:#ffffff;
-$border-grey-light:#e8e8e8;
-$border-grey:#808080;
-$border-grey-dark: #595959;
-$border-dark-light:#252527;
-$border-dark:#000;
+
 
 //Backgrounds
+$background-purple-light: #ABA1C6;
+$background-orange: #FFAD31;
 $background-light:#ffffff;
 $background-grey-light:#e8e8e8;
 $background-grey:#808080;
@@ -56,3 +54,6 @@ $media-breackpoint-up-sm: 576px;
 $media-breackpoint-up-md: 768px;
 $media-breackpoint-up-lg: 992px;
 $media-breackpoint-up-xl: 1200px;
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
