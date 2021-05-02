@@ -11,12 +11,13 @@
         display: flex;
         padding: 0;
         height: 65px;
-        background-color: #9FD8DF;
+        
     }
 
     &__content{
         min-height: calc(100vh - 65px);
         padding: 90px 25px 25px 25px;
+        background-color: $background-light;
     }
 
     &__footer{

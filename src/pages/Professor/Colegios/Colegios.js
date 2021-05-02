@@ -1,5 +1,6 @@
 //Liberias
 import React,{useState,useEffect} from 'react';
+import {notification} from 'antd';
 
 
 //Componentes
@@ -18,9 +19,16 @@ export default function Colegios(){
     const [colegios,setColegios] = useState([]);
 
     useEffect(() => {
-        getColegiosApi().then(response => {
-            setColegios(response);
-        });
+        getColegiosApi()
+        .then(response => {
+            if(response == "Failed to fetch"){
+               notification["warning"]({
+                   message:"No se encontraron colegios"
+               })
+            }else{
+                setColegios(response);
+            }
+        })
     },[])
 
 

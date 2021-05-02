@@ -20,7 +20,7 @@ export default function LayoutProfessor(props){
                 <Header className="layout-professor__header">
                    <MenuTop/>
                 </Header>
-                <Content>
+                <Content className="layout-professor__c">
                     <Row className="layout-professor__breadcrumbs"> 
                         <Breadcrumbs/>
                     </Row>

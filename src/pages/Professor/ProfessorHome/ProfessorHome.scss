@@ -1,1 +1,22 @@
 @import '../../../scss/index.scss';
+
+.home-professor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    margin-top: 50px;
+
+    &__content{
+        border:1px solid black;
+        width: 25%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+        background: $background-orange;
+    }
+
+}

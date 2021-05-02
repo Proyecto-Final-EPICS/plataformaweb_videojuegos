@@ -11,9 +11,12 @@ import './ProfessorHome.scss';
 
 export default function ProfessorHome(){
     return(
-        <h1>
-            <Button_Nav/>
-            Estamos en Home profesor
-        </h1>
+        <div className="home-professor">
+            <div className="home-professor__content">
+                <Button_Nav/>
+            </div>
+        </div>
+        
+    
     );
 }
