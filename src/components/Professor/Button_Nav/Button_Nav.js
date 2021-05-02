@@ -14,7 +14,16 @@ export default function Button_Nav(){
     return(
         <div className="button-nav">
             <Link to= {"/home/colegios"}>
-                <img src = {colegioIcon} className="button-nav__icon"/>
+                <div className="button-nav__icon" >
+                    <img src = {colegioIcon} />
+                </div>
+
+                <div className="button-nav__texto">
+                    <span>
+                        Colegios
+                    </span>
+                </div>
+               
             </Link>
 
 
