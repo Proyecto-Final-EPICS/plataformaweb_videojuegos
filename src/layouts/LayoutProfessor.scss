@@ -12,7 +12,8 @@
         display: flex;
         padding: 0;
         height: 65px;
-        background-color: #d4e7c1;
+        background-color: $background-purple-middle;
+        ;
     }
 
     &__content{
@@ -21,10 +22,12 @@
     }
 
     &__breadcrumbs{
+        background: $background-purple-light2;
         text-align: left;
-        padding: 70px 1px 10px 25px;
-        border-bottom: 1px solid black;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding: 80px 1px 4px 25px;
+        color: white !important;
+        font-family: 'Secular one', sans-serif;
+        font-size: 1.2em;
     }
 
 

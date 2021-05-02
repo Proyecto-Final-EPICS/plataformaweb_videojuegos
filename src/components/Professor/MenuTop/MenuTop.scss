@@ -27,7 +27,20 @@
     }
 
     &__right{
+        background: $background-orange;
+        display:flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
+        color: white;
+        font-family: 'Secular one',sans-serif;
+        width: 20vw;
+        height: 9.2vh;
         right: 0;
+        border-radius: 50px 0px 0px 50px;
+
+        &__user{
+            margin-left: 5px;
+        }
     }
 }

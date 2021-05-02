@@ -2,6 +2,9 @@
 
 .breadcrumbs,.bc{
     display: flex;
+    a{
+        color: white;
+    }
 }
 
 .breadcrumbs{
@@ -13,3 +16,4 @@
     white-space: nowrap;
     overflow: hidden;
 }
+

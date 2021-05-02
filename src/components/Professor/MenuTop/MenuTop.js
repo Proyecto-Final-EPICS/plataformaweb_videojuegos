@@ -32,9 +32,13 @@ export default function MenuTop(){
             </Link>
          
             <div className="menu-top__right">
-                <Button type="link" onClick={logoutUser}> 
-                    <PoweroffOutlined/>
-                </Button>
+                <div className="menu-top__right__button">
+                    <Button type="link" onClick={logoutUser}> 
+                        <PoweroffOutlined/>
+                    </Button>
+                </div>
+               
+                <span className="menu-top__right__user">User</span>
             </div>
 
         </div>
