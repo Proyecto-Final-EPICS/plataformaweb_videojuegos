@@ -1,8 +1,13 @@
 @import '../../../../scss/index.scss';
 
 .list-colegios{
-    background: rgba(228, 225, 225, 0.5);
-    box-shadow: 60px black;
+    background: $background-purple-dark;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+    border-radius: 20px;
     padding: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
 }
