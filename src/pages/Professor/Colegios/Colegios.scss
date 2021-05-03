@@ -1,6 +1,8 @@
 @import '../../../scss/index.scss';
 
 
+
+
 .colegio__titulo{
     background: $background-purple-light3;
     border-radius: 20px;
@@ -15,6 +17,7 @@
 }
 
 .colegio-contenido{
+
     &__header{
         background: $background-purple-light4;
         font-family: 'Secular one',sans-serif;
@@ -40,3 +43,4 @@
         border-radius: 20px;
     }
 }
+
