@@ -7,7 +7,7 @@ import {Link, useParams} from 'react-router-dom';
 import './Students_Games.scss';
 
 //Assets
-import Estudiantes from '../../../assets/icons/icons8-students-64.png';
+import Estudiantes from '../../../assets/icons/graduated.png';
 import Juegos from '../../../assets/icons/icons8-games-folder-64.png';
 
 export default function Students_Games(){
@@ -15,17 +15,16 @@ export default function Students_Games(){
     console.log(colegio);
     return(
         <div className="content">
-
-            <div className="content__card">
-                <Link to={`/home/colegios/${colegio}/estudiantes`}>
+            <Link to={`/home/colegios/${colegio}/estudiantes`} className="content__card">
+                <div>
                     <div className="content__card__image">
                         <img src={Estudiantes}/>
                     </div>
                     <div className="content__card__text">
                         <span>Estudiantes</span>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
             
             <div className="content__card">
                 <Link to={`/home/colegios/${colegio}/estudiantes`}>
