@@ -25,8 +25,6 @@ export default function Button_Nav(){
                 </div>
                
             </Link>
-
-
         </div>
     );
 }
