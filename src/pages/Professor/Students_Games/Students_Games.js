@@ -8,11 +8,10 @@ import './Students_Games.scss';
 
 //Assets
 import Estudiantes from '../../../assets/icons/graduated.png';
-import Juegos from '../../../assets/icons/icons8-games-folder-64.png';
+import Juegos from '../../../assets/icons/rompecabezas.png';
 
 export default function Students_Games(){
     const {colegio} = useParams();
-    console.log(colegio);
     return(
         <div className="content">
             <Link to={`/home/colegios/${colegio}/estudiantes`} className="content__card">
@@ -29,10 +28,10 @@ export default function Students_Games(){
             <div className="content__card">
                 <Link to={`/home/colegios/${colegio}/estudiantes`}>
                     <div className="content__card__image">
-                        <img src={Estudiantes}/>
+                        <img src={Juegos}/>
                     </div>
                     <div className="content__card__text">
-                        <span>Estudiantes</span>
+                        <span>Juegos</span>
                     </div>
                 </Link>
             </div>

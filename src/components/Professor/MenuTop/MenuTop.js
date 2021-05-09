@@ -1,8 +1,8 @@
 //Librerias
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Button} from 'antd';
-import {PoweroffOutlined} from '@ant-design/icons';
+import {Button,Menu,Dropdown} from 'antd';
+import {PoweroffOutlined,DownOutlined,UserOutlined} from '@ant-design/icons';
 
 
 
@@ -15,10 +15,22 @@ import logo from '../../../assets/img/palanca-de-mando.png';
 
 
 export default function MenuTop(){
-
+    
     const logoutUser =  () => {
         window.location.href="/";
     }
+    const menu = (
+        <Menu>
+            <Menu.Item>
+                <Button type="link" onClick={logoutUser}> 
+                    Logout
+                    <PoweroffOutlined/>
+                </Button>
+            </Menu.Item>
+        </Menu>
+    )
+
+   
 
     
     return(
@@ -32,13 +44,22 @@ export default function MenuTop(){
             </Link>
          
             <div className="menu-top__right">
-                <div className="menu-top__right__button">
-                    <Button type="link" onClick={logoutUser}> 
-                        <PoweroffOutlined/>
-                    </Button>
+               
+
+                <div className="menu-top__right__image">
+                  <UserOutlined />
                 </div>
                
-                <span className="menu-top__right__user">User</span>
+               <Dropdown overlay={menu}>
+                    <a target="_blank" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                        <span className="menu-top__right__user">User</span>  <DownOutlined />
+                    </a>
+               </Dropdown>
+                
+
+                <div className="menu-top__right__button">
+                   
+                </div>
             </div>
 
         </div>
