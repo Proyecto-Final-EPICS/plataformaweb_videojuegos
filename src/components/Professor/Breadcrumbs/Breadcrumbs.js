@@ -2,6 +2,8 @@
 import React from 'react';
 import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 import { Link } from 'react-router-dom';
+import {CaretRightOutlined } from '@ant-design/icons';
+
 
 //Estilos 
 import './Breadcrumbs.scss';
@@ -39,7 +41,7 @@ function LoadBreadcrumbs(breadcrumbs){
             {bcs.map(({ breadcrumb, match }, index) => (
             <div className="bc" key={match.url}>
                 <Link to={match.url}>{ breadcrumb }</Link>
-                {index < bcs.length - 1 && " ► "}
+                {index < bcs.length - 1 && <CaretRightOutlined />}
             </div>
             ))}
         </div>

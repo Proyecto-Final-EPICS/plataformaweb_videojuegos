@@ -55,11 +55,6 @@ export default function MenuTop(){
                         <span className="menu-top__right__user">User</span>  <DownOutlined />
                     </a>
                </Dropdown>
-                
-
-                <div className="menu-top__right__button">
-                   
-                </div>
             </div>
 
         </div>
