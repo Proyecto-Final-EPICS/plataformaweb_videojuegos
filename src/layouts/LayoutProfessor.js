@@ -24,9 +24,9 @@ export default function LayoutProfessor(props){
     const { routes } = props;
     const {user, isLoading} = useAuth();
 
+    console.log(user)
 
-
-    if (!user){
+    if (!user && !isLoading){//No hay usuario logeado
         return(
             <>
                 <Route path="/" component={Login}/>
@@ -35,26 +35,30 @@ export default function LayoutProfessor(props){
         )
     }
 
-    return(
-        <Layout>
-            <Layout className="layout-professor">
-                <Header className="layout-professor__header">
-                   <MenuTop/>
-                </Header>
-                <Content className="layout-professor__c">
-                    <Row className="layout-professor__breadcrumbs"> 
-                        <Breadcrumbs/>
-                    </Row>
-                    <div className="layout-professor__content">
-                        <LoadRoutes routes={routes}/>
-                    </div>
-                </Content>
-                <Footer style={{textAlign:'center'}}className="layout-professor__footer">
-                    <span> &copy; EPICS IEEE</span>
-                </Footer>
+    if(user && !isLoading){//Usuario logeado
+        return(
+            <Layout>
+                <Layout className="layout-professor">
+                    <Header className="layout-professor__header">
+                       <MenuTop/>
+                    </Header>
+                    <Content className="layout-professor__c">
+                        <Row className="layout-professor__breadcrumbs"> 
+                            <Breadcrumbs/>
+                        </Row>
+                        <div className="layout-professor__content">
+                            <LoadRoutes routes={routes}/>
+                        </div>
+                    </Content>
+                    <Footer style={{textAlign:'center'}}className="layout-professor__footer">
+                        <span> &copy; EPICS IEEE</span>
+                    </Footer>
+                </Layout>
             </Layout>
-        </Layout>
-    );
+        );
+    }
+    
+    return null;
 }
 
 

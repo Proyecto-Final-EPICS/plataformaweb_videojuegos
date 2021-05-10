@@ -6,6 +6,9 @@ import { Redirect } from 'react-router-dom';
 //Componentes
 import LoginForm from '../../components/General/LoginForm';
 
+//Api}
+import {getAccessTokenApi} from '../../api/auth';
+
 //Estilos
 import './Login.scss';
 
@@ -15,8 +18,11 @@ import Logo from '../../assets/img/palanca-de-mando.png';
 export default function Login(){
     const { Content } = Layout;
 
-  
 
+    //Si el user está logeado no lo deja entrar al login
+    if(getAccessTokenApi()){
+      return <Redirect to="/home" />
+    }
     return(
       <Layout className="sign-in">
           <Content className = "sign-in__content">

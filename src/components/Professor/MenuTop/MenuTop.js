@@ -5,6 +5,8 @@ import {Button,Menu,Dropdown} from 'antd';
 import {PoweroffOutlined,DownOutlined,UserOutlined} from '@ant-design/icons';
 
 
+//Api
+import {logout} from '../../../api/auth';
 
 //Estilos
 import './MenuTop.scss';
@@ -17,8 +19,10 @@ import logo from '../../../assets/img/palanca-de-mando.png';
 export default function MenuTop(){
     
     const logoutUser =  () => {
-        window.location.href="/";
+        logout();
+        window.location.reload();
     }
+
     const menu = (
         <Menu>
             <Menu.Item>

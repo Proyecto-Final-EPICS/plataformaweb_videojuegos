@@ -16,7 +16,7 @@ export default function AuthProvider(props){
     
    useEffect(()=>{
        checkUserLogin(setUser);
-   })
+   },[])
     return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>
     //Se está pasando el usuario a toda la web con value={user}
 }

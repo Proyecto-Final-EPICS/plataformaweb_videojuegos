@@ -43,10 +43,10 @@ export default function LoginForm(){
 
     const login = async e =>{
         const result = await signinAPI(inputs)
-
-        if(result.message){
+        console.log(result)
+        if(result.token =="none"){
             notification["error"]({
-                message:result.message
+                message:"Contraseña o usuario incorrecto"
             });
         }else{
             const {token} = result;
