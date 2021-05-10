@@ -1,18 +1,36 @@
 //Librerías
 import React from 'react';
 import { Layout, Row, Col, Breadcrumb } from 'antd';
-import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Switch,Link, Redirect} from 'react-router-dom';
+
 //Componentes
 import MenuTop from '../components/Professor/MenuTop';
 import Breadcrumbs from '../components/Professor/Breadcrumbs';
+
+//Paginas
+import Login from '../pages/Login';
+
+//Api
+import {getAccessToken} from '../api/auth';
 
 //Estilos
 import './LayoutProfessor.scss';
 
 export default function LayoutProfessor(props){
     const {Header,Content,Footer} = Layout;
-    
     const { routes } = props;
+
+    const user = null;
+    
+
+    if (!user){
+        return(
+            <>
+                <Route path="/" component={Login}/>
+                <Redirect to="/"/>
+            </>
+        )
+    }
 
     return(
         <Layout>

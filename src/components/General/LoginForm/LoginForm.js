@@ -8,6 +8,9 @@ import { UserOutlined, LockOutlined} from '@ant-design/icons';
 //API
 import {signinAPI} from'../../../api/users'
 
+//Utils
+import {ACCESS_TOKEN} from '../../../utils/constants'
+
 //Estilos
 import './LoginForm.scss';
 
@@ -28,16 +31,37 @@ export default function LoginForm(){
     }
 
     
-    const login = async () => {
-        const result = await signinAPI(inputs);
-        console.log(result);
-        if(result === "ok"){
-            window.location.href="/home";
-        }else {
-            notification["error"]({message:"Contraseña o usuario incorrecto"});
-        }
-    }
+    // const login = async () => {
+    //     const result = await signinAPI(inputs);
+    //     console.log(result);
+    //     if(result.ok){
+    //         window.location.href="/home";
+    //     }else {
+    //         notification["error"]({message:"Contraseña o usuario incorrecto"});
+    //     }
+    // }
 
+    const login = async e =>{
+        const result = await signinAPI(inputs)
+
+        if(result.message){
+            notification["error"]({
+                message:result.message
+            });
+        }else{
+            const {token} = result;
+            //Access token almacenado en el local storage
+            //localStorage.setItem(key,value) 
+            localStorage.setItem(ACCESS_TOKEN,token);
+
+            notification["success"]({
+                message: "Login correcto"
+            });
+
+            window.location.href= "/home";
+        }
+        console.log(result);
+    }
 
     return(
         <Form className="login-form" onChange={changeForm} onFieldsChange={login}>
