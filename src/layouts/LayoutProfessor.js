@@ -11,7 +11,10 @@ import Breadcrumbs from '../components/Professor/Breadcrumbs';
 import Login from '../pages/Login';
 
 //Api
-import {getAccessToken} from '../api/auth';
+import {getAccessToken} from '../api/auth';//useAuth devuelve contexto y contexto devuelve pagina, que en este caso tiene un valor user
+
+//Hooks
+import useAuth from '../hooks/useAuth';
 
 //Estilos
 import './LayoutProfessor.scss';
@@ -19,9 +22,9 @@ import './LayoutProfessor.scss';
 export default function LayoutProfessor(props){
     const {Header,Content,Footer} = Layout;
     const { routes } = props;
+    const {user, isLoading} = useAuth();
 
-    const user = null;
-    
+
 
     if (!user){
         return(

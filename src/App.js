@@ -8,6 +8,8 @@ import "antd/dist/antd.css";
 //Fichero de configuración de rutas
 import routes from './config/routes';
 
+//Hooks
+import AuthProvider from './providers/AuthProvider';
 
 //Estilos
 import './App.scss';
@@ -16,13 +18,15 @@ import './App.scss';
 
 function App(){
   return(
-    <Router>
-      <Switch>
-        {routes.map((route,index)=>(
-          <RouteWithSubRoutes key={index}{...route}/>
-        ))}
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Switch>
+          {routes.map((route,index)=>(
+            <RouteWithSubRoutes key={index}{...route}/>
+          ))}
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 }
 
