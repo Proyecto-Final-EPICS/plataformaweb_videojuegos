@@ -18,7 +18,8 @@ import './App.scss';
 
 function App(){
   return(
-    <AuthProvider>
+    //Siempre se va a utilizar el AuthProvider,comprobar si el user esta logeado
+    <AuthProvider> 
       <Router>
         <Switch>
           {routes.map((route,index)=>(
