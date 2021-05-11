@@ -59,22 +59,24 @@ function Student(props) {
        <Card className="card">
             <List.Item
                 actions={[
-                    <div className="card__content">
-                        <h1 className="card__content__title">
+                    <div className="card__content-est">
+                        <h1 className="card__content-est__title">
                             {student.studentName}
                         </h1>
 
-                        <h1 className="card__content__title">
+                        <h1 className="card__content-est__title">
                             {student.age}
                         </h1>
 
-                        <h1 className="card__content__title">
+                        <h1 className="card__content-est__title">
                             {student.username}
                         </h1>
 
-                        <Button>
-                            <img src={Lapiz}/>
+                        <Button className="card__content-est__edit">
+                            <img src={Lapiz} className="card__content-est__edit__image"/>
                         </Button>
+
+                        
                         <Link to ={`/home/colegios/${colegio}/${student.studentName}-${student.username}`} >
                             <Button type="primary" className="card__button">
                                 Entrar

@@ -46,14 +46,18 @@ export default function Colegio(){
                     </div>     
 
                     <div className="col-contenido__header__col">
-                        <h1>Grado</h1>
+                        <h1>Usuario</h1>
                     </div>  
 
                     <div className="col-contenido__header__col">
                         <h1>Editar</h1>
                     </div>  
+
+                    <div className="col-contenido__header__col">
+                        <h1>Acción</h1>
+                    </div>
                 </Header>
-                
+
                 <Content className="col-contenido__content"> 
                     <ListStudents students={students}/>
                 </Content>

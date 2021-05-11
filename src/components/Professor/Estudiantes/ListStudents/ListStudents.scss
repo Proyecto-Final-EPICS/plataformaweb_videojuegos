@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     &__nostudents{
         background-color: $background-purple-light3;
         border-radius: 18px;
@@ -22,5 +22,30 @@
             color: $font-grey;
             font-size: 20px;
         }
+    }
+}
+
+.card{
+    &__content-est{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        width: 80vw;
+        text-align: center;
+
+        &__title{
+            color: white;
+            margin-left: 19.85%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+       &__edit{
+           
+
+        &__image{
+            width: 20px;
+        }
+        
+       }
     }
 }
