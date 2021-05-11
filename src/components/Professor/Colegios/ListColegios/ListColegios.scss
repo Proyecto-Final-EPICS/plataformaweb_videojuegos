@@ -56,9 +56,11 @@
 
     
     &__content{
-        display: flex;
+        //display: flex;
+        //justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         width: 80vw;
-        justify-content: space-between;
         text-align: center;
 
         &__title{

@@ -45,7 +45,7 @@ function Colegio(props){
                         <h1 className="card__content__title">
                             {colegio.schoolName}
                         </h1>
-                        <h1>
+                        <h1 className="card__content__title">
                             xD
                         </h1>
         
@@ -58,6 +58,7 @@ function Colegio(props){
                     </div>
                     
                 ]}
+                
                
             >
                 {/* <div className="card__content">

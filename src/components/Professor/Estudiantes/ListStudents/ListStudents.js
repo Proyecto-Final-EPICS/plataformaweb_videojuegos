@@ -13,7 +13,6 @@ import Caja from  '../../../../assets/icons/icons8-empty-box-64.png';
 
 export default function ListStudents(props) {
     const { students } = props;
-    console.log(students);
     if (students[0] == "") {
         return(
 

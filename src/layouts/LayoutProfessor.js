@@ -24,7 +24,7 @@ export default function LayoutProfessor(props){
     const { routes } = props;
     const {user, isLoading} = useAuth();
 
-    console.log(user)
+    //console.log(user)
 
     if (!user && !isLoading){//No hay usuario logeado
         return(

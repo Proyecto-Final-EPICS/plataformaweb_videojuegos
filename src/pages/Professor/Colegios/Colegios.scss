@@ -19,18 +19,22 @@
 .colegio-contenido{
 
     &__header{
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-around;
+        display: grid;
+        grid-template-columns: 43% 19% 35%;
         background: $background-purple-light4;
         font-family: 'Secular one',sans-serif;
         margin-bottom: 15px;
         border-radius: 20px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+        // height: 40px;
+       
 
         &__col{
-            margin-top: 5px;
+            //margin-top: 5px;
             font-size: 18px;
+            text-align: center;
             h1{
                 color: $font-grey;
             }
