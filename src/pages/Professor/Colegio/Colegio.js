@@ -29,30 +29,32 @@ export default function Colegio(){
 
     return(
         <Layout>
-            <div className="colegio__titulo">
+            <div className="col__titulo">
                {col}
             </div>
             
-            <div className="colegio-contenido">
+            <div className="col-contenido">
 
-                <Header className="colegio-contenido__header">
-                    <div className="colegio-contenido__header__col">
+                <Header className="col-contenido__header">
+
+                    <div className="col-contenido__header__col">
                         <h1>Nombre</h1>
                     </div>
 
-                    <div className="colegio-contenido__header__col">
+                    <div className="col-contenido__header__col">
                         <h1>Edad</h1>
                     </div>     
 
-                    <div className="colegio-contenido__header__col">
+                    <div className="col-contenido__header__col">
                         <h1>Grado</h1>
                     </div>  
 
-                    <div className="colegio-contenido__header__col">
+                    <div className="col-contenido__header__col">
                         <h1>Editar</h1>
                     </div>  
                 </Header>
-                <Content className="colegio-contenido__content"> 
+                
+                <Content className="col-contenido__content"> 
                     <ListStudents students={students}/>
                 </Content>
             </div>

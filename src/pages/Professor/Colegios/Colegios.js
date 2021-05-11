@@ -41,6 +41,7 @@ export default function Colegios(){
             </div>
 
             <div className="colegio-contenido">
+
                 <Header className="colegio-contenido__header">
                     <div className="colegio-contenido__header__col">
                         <h1>Nombre</h1>
@@ -53,6 +54,7 @@ export default function Colegios(){
                         <h1>Acción</h1>
                     </div>  
                 </Header>
+                
                 <Content className="colegio-contenido__content">
                     <ListColegios 
                         colegios={colegios}
