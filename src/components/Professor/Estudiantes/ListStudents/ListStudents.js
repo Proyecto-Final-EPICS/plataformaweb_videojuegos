@@ -78,7 +78,7 @@ function Student(props) {
 
                         
                         <Link to ={`/home/colegios/${colegio}/${student.studentName}-${student.username}`} >
-                            <Button type="primary" className="card__button">
+                            <Button type="primary" className="card__content-est__button">
                                 Entrar
                             </Button>
                         </Link>
