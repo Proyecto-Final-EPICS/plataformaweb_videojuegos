@@ -36,19 +36,16 @@ function Juegos(props){
 function Juego(props){
     const {game} = props;
     return(
-        <Card className="card">
+        <Card className="card-game">
             <List.Item
                 actions={[
-                    <div className="card__content">
-                        <h1 className="card__content__title">
+                    <div className="card-game__content">
+                        <h1 className="card-game__content__title">
                             {game}
-                        </h1>
-                        <h1 className="card__content__title">
-                            xD
                         </h1>
         
                         <Link to ={`/home/colegios/xd`}>
-                            <Button type="primary" className="card__button"> 
+                            <Button type="primary" className="card-game__button"> 
                                 Entrar
                                 <CaretUpOutlined />
                             </Button> 

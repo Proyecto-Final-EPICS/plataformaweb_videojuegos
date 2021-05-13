@@ -41,10 +41,6 @@ export default function GamesStudent(){
                     </div>
 
                     <div className="je-contenido__header__col">
-                        <h1>Tema</h1>
-                    </div>     
-
-                    <div className="je-contenido__header__col">
                         <h1>Acción</h1>
                     </div>
                 </Header>

@@ -18,6 +18,7 @@ export function getAccessTokenApi(){
 function willExpireToken(token){
     const seconds = 60;
     const metaToken = jwtDecode(token);
+    console.log(metaToken);
     const { exp } = metaToken;
     const now = (Date.now() + seconds) / 1000;
     return now>exp;

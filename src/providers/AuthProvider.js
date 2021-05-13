@@ -34,7 +34,7 @@ function checkUserLogin(setUser){
     }else{
         setUser({
             isLoading: false,
-            user: jwtDecode(accessToken)
+            user: jwtDecode(accessToken).sub //Acá se saca el usuario del token
         });
     }
 }
