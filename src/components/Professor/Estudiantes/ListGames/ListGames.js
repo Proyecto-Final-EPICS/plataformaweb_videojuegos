@@ -36,16 +36,16 @@ function Juegos(props){
 function Juego(props){
     const {game} = props;
     return(
-        <Card className="card-game">
+        <Card className="card">
             <List.Item
                 actions={[
-                    <div className="card-game__content">
-                        <h1 className="card-game__content__title">
+                    <div className="card__content-game">
+                        <h1 className="card__content__title">
                             {game}
                         </h1>
         
                         <Link to ={`/home/colegios/xd`}>
-                            <Button type="primary" className="card-game__button"> 
+                            <Button type="primary" className="card__button"> 
                                 Entrar
                                 <CaretUpOutlined />
                             </Button> 
@@ -53,8 +53,6 @@ function Juego(props){
                     </div>
                     
                 ]}
-                
-               
             >
                 {/* <div className="card__content">
                     <List.Item.Meta

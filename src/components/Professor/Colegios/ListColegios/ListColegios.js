@@ -37,6 +37,7 @@ function Colegios(props){
 
 function Colegio(props){
     const {colegio} = props;
+    // console.log(colegio);
     return(
         <Card className="card">
             <List.Item

@@ -3,7 +3,6 @@
 .colegios{
     overflow: scroll;
     overflow-x: hidden;
-
 }
 
 
@@ -59,8 +58,9 @@
         //display: flex;
         //justify-content: space-between;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 35% 32% 36%;
         width: 80vw;
+        padding-top: 5px;
         text-align: center;
 
         &__title{
