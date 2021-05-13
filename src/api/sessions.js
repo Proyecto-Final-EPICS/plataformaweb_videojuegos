@@ -21,10 +21,12 @@ export function getSessionsApi(nameGame){
     })
 }
 
-export function getSessionsByStudentUserNameApi(username){
-    const url = `${basePath}/getSessionGamesByStudent?username=${username}`;
+export function getSessionsByStudentUserNameApi(data){
+    console.log(data);
+    const url = `${basePath}/getGameSessionsByStudent`;
     const params = {
-        method: 'GET',
+        method: 'POST',
+        body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json"
         }

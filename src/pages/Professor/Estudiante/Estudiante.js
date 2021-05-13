@@ -1,7 +1,7 @@
 //Liberias
 import React,{useState,useEffect} from 'react';
 import {Layout} from 'antd';
-import {useLocation} from 'react-router-dom';
+import {useLocation,useParams} from 'react-router-dom';
 
 //Componentes
 //import MenuSider from '../../../components/Professor/MenuSider';
@@ -14,24 +14,32 @@ import {getSessionsByStudentUserNameApi} from '../../../api/sessions';
 import './Estudiante.scss';
 
 export default function Estudiante(){
-    const {Content,Sider} = Layout;
+    const {Content} = Layout;
+    const data ={
+        username: "",
+        gameName: ""
+    }
+
     const [sessions,setSessions] = useState([]);
     const username = useLocation().pathname.split("/")[4].split("-")[1];
+    const {game} = useParams();
    
 
+
     useEffect(()=>{
-        getSessionsByStudentUserNameApi(username).then(response =>{
+        data.username = username;
+        data.gameName = game;
+        getSessionsByStudentUserNameApi(data).then(response =>{
           setSessions(response);
         })
     },[])
+
     return(
         <Layout>
-            {/* <Sider>
-                <MenuSider/>
-            </Sider> */}
             <Content>
                 <ListSessions sessions={sessions}/>
             </Content>
+           
         </Layout>
     );
 }

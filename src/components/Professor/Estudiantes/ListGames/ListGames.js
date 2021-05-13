@@ -2,7 +2,7 @@
 import React from 'react';
 import {List,Button,Card} from 'antd';
 import {CaretUpOutlined} from '@ant-design/icons';
-import {Link} from 'react-router-dom';
+import {Link,useParams} from 'react-router-dom';
 
 //Estilos
 import './ListGames.scss';
@@ -35,6 +35,8 @@ function Juegos(props){
 
 function Juego(props){
     const {game} = props;
+    const {colegio,estudiante,username} = useParams();
+    console.log(useParams());
     return(
         <Card className="card">
             <List.Item
@@ -44,7 +46,7 @@ function Juego(props){
                             {game}
                         </h1>
         
-                        <Link to ={`/home/colegios/xd`}>
+                        <Link to ={`/home/colegios/${colegio}/${estudiante}-${username}/${game}`}>
                             <Button type="primary" className="card__button"> 
                                 Entrar
                                 <CaretUpOutlined />
