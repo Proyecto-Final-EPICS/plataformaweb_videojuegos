@@ -2,7 +2,6 @@
 import LayoutAdmin from '../layouts/LayoutAdmin';
 import LayoutProfessor from '../layouts/LayoutProfessor';
 
-
 //Pages for everybody
 import Login from '../pages/Login';
 import Error404 from '../pages/Error';
@@ -15,7 +14,7 @@ import Sessions from '../pages/Professor/Sessions';
 import ProfessorHome from '../pages/Professor/ProfessorHome';
 import Colegios from '../pages/Professor/Colegios';
 import Colegio from '../pages/Professor/Colegio';
-import Estudiante from '../pages/Professor/Estudiante';
+import Estudiante from '../pages/Professor/Estudiante';//Es la info del estudiante en el juego
 import Students_Games from '../pages/Professor/Students_Games';
 import GamesStudent from '../pages/Professor/GamesStudent';
 

@@ -1,15 +1,30 @@
 //Librerias
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {Layout} from 'antd';
+import {useParams} from 'react-router-dom';
 
 //Componentes
 import ListGames from '../../../components/Professor/Estudiantes/ListGames';
+
+//Api
+import {getGameByStudentApi} from '../../../api/colegio';
 
 //Estilos
 import './GamesStudent.scss';
 
 export default function GamesStudent(){
     const {Content,Header} = Layout;
+    const {username} = useParams();
+    const [games,setGames] = useState([]);
+    
+    
+
+    useEffect(() => {
+        getGameByStudentApi(username)
+        .then(response => {
+          setGames(response)
+        })
+    },[])
 
     return(
         <Layout>
@@ -35,7 +50,7 @@ export default function GamesStudent(){
                 </Header>
 
                 <Content className="je-contenido__content"> 
-                    <ListGames/>
+                    <ListGames games={games} />
                 </Content>
             </div>
 

@@ -1,18 +1,73 @@
 //Liberias
 import React from 'react';
-import {Button} from 'antd';
+import {List,Button,Card} from 'antd';
+import {CaretUpOutlined} from '@ant-design/icons';
+import {Link} from 'react-router-dom';
 
 //Estilos
 import './ListGames.scss';
 
-export default function ListGames(){
+export default function ListGames(props){
+    const {games} = props;
+    games.shift();
     return(
-        <h1>
-            Aquí va la lista xd
-            <Button>
-                A
-            </Button>
-        </h1>
+        <div className="list-games">
+            <Juegos games={games}/>
+        </div>
+    );
+}
 
+function Juegos(props){
+    const {games} = props;
+    return(
+        
+        <List
+            grid={{gutter: 16, column: 1}}
+            className= "games"
+            itemLayout= "horizontal"
+            dataSource={games}
+            renderItem={game => <Juego
+                game = {game}
+            />}
+        />
+    );
+}
+
+function Juego(props){
+    const {game} = props;
+    return(
+        <Card className="card">
+            <List.Item
+                actions={[
+                    <div className="card__content">
+                        <h1 className="card__content__title">
+                            {game}
+                        </h1>
+                        <h1 className="card__content__title">
+                            xD
+                        </h1>
+        
+                        <Link to ={`/home/colegios/xd`}>
+                            <Button type="primary" className="card__button"> 
+                                Entrar
+                                <CaretUpOutlined />
+                            </Button> 
+                        </Link>
+                    </div>
+                    
+                ]}
+                
+               
+            >
+                {/* <div className="card__content">
+                    <List.Item.Meta
+                        title={`
+                            ${colegio.schoolName}
+                        `}
+                    />
+                </div> */}
+            </List.Item>
+        </Card>
+        
     );
 }

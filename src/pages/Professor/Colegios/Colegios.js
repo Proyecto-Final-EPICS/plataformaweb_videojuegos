@@ -7,8 +7,10 @@ import {notification,Layout} from 'antd';
 import ListColegios from '../../../components/Professor/Colegios/ListColegios';
 
 //API
-import {getColegiosApi} from '../../../api/colegio';
+import {getColegiosByProfessorApi} from '../../../api/colegio';
 
+//Hooks
+import useAuth from '../../../hooks/useAuth';
 
 
 
@@ -18,9 +20,10 @@ import './Colegios.scss';
 export default function Colegios(){
     const [colegios,setColegios] = useState([]);
     const {Content,Header} = Layout;
+    const {user} = useAuth().user;
 
     useEffect(() => {
-        getColegiosApi()
+        getColegiosByProfessorApi(user)
         .then(response => {
             if(response == "Failed to fetch"){
                notification["warning"]({

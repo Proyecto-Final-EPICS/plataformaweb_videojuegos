@@ -10,8 +10,6 @@ import Breadcrumbs from '../components/Professor/Breadcrumbs';
 //Paginas
 import Login from '../pages/Login';
 
-//Api
-import {getAccessToken} from '../api/auth';//useAuth devuelve contexto y contexto devuelve pagina, que en este caso tiene un valor user
 
 //Hooks
 import useAuth from '../hooks/useAuth';
