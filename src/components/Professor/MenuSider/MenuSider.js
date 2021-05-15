@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import {HomeOutlined, SolutionOutlined} from '@ant-design/icons';
+import {HomeOutlined, SolutionOutlined, MenuOutlined, FundOutlined } from '@ant-design/icons';
 
 
 //Estilos

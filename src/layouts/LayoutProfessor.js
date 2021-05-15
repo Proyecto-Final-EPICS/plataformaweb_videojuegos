@@ -1,7 +1,7 @@
 //Librerías
 import React from 'react';
-import { Layout, Row, Col, Breadcrumb } from 'antd';
-import {BrowserRouter as Router,Route,Switch,Link, Redirect} from 'react-router-dom';
+import { Layout, Row} from 'antd';
+import {Route,Switch,Redirect} from 'react-router-dom';
 
 //Componentes
 import MenuTop from '../components/Professor/MenuTop';
@@ -22,7 +22,7 @@ export default function LayoutProfessor(props){
     const { routes } = props;
     const {user, isLoading} = useAuth();
 
-    //console.log(user)
+
 
     if (!user && !isLoading){//No hay usuario logeado
         return(
@@ -33,12 +33,15 @@ export default function LayoutProfessor(props){
         )
     }
 
+ 
+
     if(user && !isLoading){//Usuario logeado
+      
         return(
             <Layout>
                 <Layout className="layout-professor">
                     <Header className="layout-professor__header">
-                       <MenuTop/>
+                        <MenuTop/>
                     </Header>
                     <Content className="layout-professor__c">
                         <Row className="layout-professor__breadcrumbs"> 
@@ -58,6 +61,8 @@ export default function LayoutProfessor(props){
     
     return null;
 }
+  
+
 
 
 function LoadRoutes({routes}){
@@ -68,7 +73,8 @@ function LoadRoutes({routes}){
                     key={index}
                     path={route.path}
                     exact={route.exact}
-                    component={route.component}
+                    // component={route.component}
+                    render={props => <route.component {...props} routes={routes}/>}
                 />
             ))}
         </Switch>

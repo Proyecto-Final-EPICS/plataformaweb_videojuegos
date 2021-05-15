@@ -1,5 +1,5 @@
 //Liberías
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import {Form, Input, Button, notification} from 'antd';
 
 //Iconos
@@ -44,7 +44,7 @@ export default function LoginForm(){
 
     const login = async e =>{
         const result = await signinAPI(inputs)
-        if(result.token =="none"){
+        if(result.token ==="none"){
             notification["error"]({
                 message:"Contraseña o usuario incorrecto"
             });

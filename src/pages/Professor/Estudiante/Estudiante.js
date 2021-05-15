@@ -4,7 +4,6 @@ import {Layout} from 'antd';
 import {useLocation,useParams} from 'react-router-dom';
 
 //Componentes
-//import MenuSider from '../../../components/Professor/MenuSider';
 import ListSessions from '../../../components/Professor/Sessions';
 
 //API
@@ -21,11 +20,10 @@ export default function Estudiante(){
     }
 
     const [sessions,setSessions] = useState([]);
-    const username = useLocation().pathname.split("/")[4].split("-")[1];
+    const username = useLocation().pathname.split("/")[5].split("-")[1];
+    console.log(username);
     const {game} = useParams();
    
-
-
     useEffect(()=>{
         data.username = username;
         data.gameName = game;

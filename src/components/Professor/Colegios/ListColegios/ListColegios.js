@@ -46,9 +46,9 @@ function Colegio(props){
                         <h1 className="card__content__title">
                             {colegio.schoolName}
                         </h1>
-                        <h1 className="card__content__title">
+                        {/* <h1 className="card__content__title">
                             xD
-                        </h1>
+                        </h1> */}
         
                         <Link to ={`/home/colegios/${colegio.schoolName}`}>
                             <Button type="primary" className="card__button"> 

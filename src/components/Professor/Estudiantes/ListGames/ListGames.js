@@ -36,7 +36,9 @@ function Juegos(props){
 function Juego(props){
     const {game} = props;
     const {colegio,estudiante,username} = useParams();
-    console.log(useParams());
+
+    
+
     return(
         <Card className="card">
             <List.Item
@@ -46,8 +48,8 @@ function Juego(props){
                             {game}
                         </h1>
         
-                        <Link to ={`/home/colegios/${colegio}/${estudiante}-${username}/${game}`}>
-                            <Button type="primary" className="card__button"> 
+                        <Link to ={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}`}>
+                            <Button type="primary" className="card__button" > 
                                 Entrar
                                 <CaretUpOutlined />
                             </Button> 

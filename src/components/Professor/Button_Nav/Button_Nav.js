@@ -1,10 +1,8 @@
 //Liberias
 import React from 'react';
-import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 //Iconos
-import { SearchOutlined,BankOutlined } from '@ant-design/icons';
 import colegioIcon from '../../../assets/icons/school.png';
 
 //Estilos
@@ -15,7 +13,7 @@ export default function Button_Nav(){
         <div className="button-nav">
             <Link to= {"/home/colegios"}>
                 <div className="button-nav__icon" >
-                    <img src = {colegioIcon} />
+                    <img src = {colegioIcon} alt="boton_colegios" />
                 </div>
 
                 <div className="button-nav__texto">

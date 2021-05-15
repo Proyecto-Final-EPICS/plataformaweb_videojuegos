@@ -13,7 +13,7 @@ import Caja from  '../../../../assets/icons/icons8-empty-box-64.png';
 
 export default function ListStudents(props) {
     const { students } = props;
-    if (students[0] == "") {
+    if (students[0] === "") {
         return(
 
             <div className="container">
@@ -21,7 +21,7 @@ export default function ListStudents(props) {
                     <h1>
                         No se encontraron estudiantes 
                     </h1>
-                    <img src={Caja}/>
+                    <img src={Caja} alt="icono de caja"/>
                 </div>
             </div>
         );
@@ -73,11 +73,11 @@ function Student(props) {
                         </h1>
 
                         <Button className="card__content-est__edit">
-                            <img src={Lapiz} className="card__content-est__edit__image"/>
+                            <img src={Lapiz} className="card__content-est__edit__image" alt="icono de editar"/>
                         </Button>
 
                         
-                        <Link to ={`/home/colegios/${colegio}/${student.studentName}-${student.username}`} >
+                        <Link to ={`/home/colegios/${colegio}/estudiantes/${student.studentName}-${student.username}`} >
                             <Button type="primary" className="card__content-est__button">
                                 Entrar
                             </Button>

@@ -49,9 +49,9 @@ export default function Colegios(){
                     <div className="colegio-contenido__header__col">
                         <h1>Nombre</h1>
                     </div>
-                    <div className="colegio-contenido__header__col">
+                    {/* <div className="colegio-contenido__header__col">
                         <h1>Estudiantes</h1>
-                    </div>   
+                    </div>    */}
                     
                     <div className="colegio-contenido__header__col">
                         <h1>Acción</h1>

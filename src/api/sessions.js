@@ -22,7 +22,6 @@ export function getSessionsApi(nameGame){
 }
 
 export function getSessionsByStudentUserNameApi(data){
-    console.log(data);
     const url = `${basePath}/getGameSessionsByStudent`;
     const params = {
         method: 'POST',

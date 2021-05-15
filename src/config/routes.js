@@ -1,6 +1,7 @@
 //Layouts
 import LayoutAdmin from '../layouts/LayoutAdmin';
 import LayoutProfessor from '../layouts/LayoutProfessor';
+import LayoutData from '../layouts/LayoutData';
 
 //Pages for everybody
 import Login from '../pages/Login';
@@ -52,15 +53,34 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                 exact: true
             },
             {
-                path:"/home/colegios/:colegio/:estudiante-:username",
+                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username",
                 component: GamesStudent,
                 exact: true
             },
             {
-                path:"/home/colegios/:colegio/:estudiante-:username/:game",
+                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game",
                 component: Estudiante,
                 exact: true
             },
+            // {
+            //     path: "/home/colegios/:colegio/:estudiante-:username/:game",
+            //     component: LayoutData,
+            //     exact: false,
+            //     routes:[
+            //         {
+            //             path:"/home/colegios/:colegio/:estudiante-:username/:game",
+            //             component: Estudiante,
+            //             exact: true,
+            //             routes:[
+            //                 {
+            //                     path: "/admin",
+            //                     component: Login,
+            //                     exact: true
+            //                 }
+            //             ]
+            //         }
+            //     ]
+            // },
             {
                 component: Error404
             }
