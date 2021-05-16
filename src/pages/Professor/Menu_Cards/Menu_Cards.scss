@@ -1,1 +1,17 @@
 @import '../../../scss/index.scss';
+
+
+.content-menu{
+    &__titulo{
+        background-color: $background-orange;
+        border: 1px solid black;
+        width: 25vw;
+        text-align: center;
+        font-family: 'Secular one',sans-serif;
+    }
+
+    &__card{
+        background-color: blanchedalmond;
+        border: 1px solid black;
+    }
+}
