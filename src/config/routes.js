@@ -21,7 +21,7 @@ import Estudiante from '../pages/Professor/Estudiante';//Es la info del estudian
 import Students_Games from '../pages/Professor/Students_Games';
 import GamesStudent from '../pages/Professor/GamesStudent';
 import Menu_Cards from '../pages/Professor/Menu_Cards';
-
+import Graficos from '../pages/Professor/Graficos';
 
 const routes = [//Es el sistema de rutas, el array contiene todas las rutas
     {
@@ -63,6 +63,16 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
             {
                 path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game",
                 component: Menu_Cards,
+                exact: true
+            },
+            {
+                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/sesiones",
+                component: Estudiante,
+                exact: true
+            },
+            {
+                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/sesiones/:nivel",
+                component: Graficos,
                 exact: true
             },
             {

@@ -1,13 +1,20 @@
 //Liberiras
 import React from 'react';
 import {List,Table} from 'antd';
-import {useLocation} from 'react-router-dom';
+import {Link,useParams} from 'react-router-dom';
 
 export default function ListSessions(props){
     const {sessions} = props;
+    console.log(sessions);
+    const {colegio,estudiante,username,game} = useParams();
     // const {pathname} = useLocation()
     // console.log(pathname.split("/"))
     const columns = [
+        {
+            title: "Nro de Sesión",
+            dataIndex: "nro_de_sesion",
+            key:"nro_de_sesion"
+        },
         {
             title: "Juego",
             dataIndex: "juego",
@@ -22,6 +29,15 @@ export default function ListSessions(props){
             title: "Tiempo de nivel",
             dataIndex: "tiempo_de_nivel",
             key: "tiempo_de_nivel"
+        },
+        {
+            title: "Acción",
+            key: "accion",
+            render: (text,record) =>(
+                <Link to={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones/${record.nro_de_sesion}`}>
+                    Entrar
+                </Link>
+            )
         }
     ]
 
@@ -43,11 +59,13 @@ export default function ListSessions(props){
         sessions.forEach((session,index) => {
             const data = {
                 key:0,
+                nro_de_sesion: index,
                 juego:"",
                 nro_de_fallas:"",
                 tiempo_de_nivel:""            
             }
             data.key = index;
+            data.nro_de_sesion = index + 1;
             data.juego = session.Game.nameGame;
             data.nro_de_fallas = session.Game.levels[0].parameters[0].value;
             data.tiempo_de_nivel = session.Game.levels[0].parameters[1].value;

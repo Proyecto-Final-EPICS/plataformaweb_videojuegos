@@ -21,13 +21,13 @@ export default function Estudiante(){
 
     const [sessions,setSessions] = useState([]);
     const username = useLocation().pathname.split("/")[5].split("-")[1];
-    console.log(username);
     const {game} = useParams();
    
     useEffect(()=>{
         data.username = username;
         data.gameName = game;
         getSessionsByStudentUserNameApi(data).then(response =>{
+            console.log(response);
           setSessions(response);
         })
     },[])
