@@ -13,7 +13,6 @@ import AdminSchool from '../pages/Admin/Schools';
 import AdminProfessors from '../pages/Admin/Professors';
 
 //Pages Professor
-import Sessions from '../pages/Professor/Sessions';
 import ProfessorHome from '../pages/Professor/ProfessorHome';
 import Colegios from '../pages/Professor/Colegios';
 import Colegio from '../pages/Professor/Colegio';

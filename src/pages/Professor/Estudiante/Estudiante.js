@@ -27,7 +27,6 @@ export default function Estudiante(){
         data.username = username;
         data.gameName = game;
         getSessionsByStudentUserNameApi(data).then(response =>{
-            console.log(response);
           setSessions(response);
         })
     },[])
