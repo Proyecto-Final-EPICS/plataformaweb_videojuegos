@@ -1,11 +1,12 @@
 //Liberias
-import React from 'react';
+import React,{useState} from 'react';
 import {Row, Col} from 'antd';
 import {Link,useParams} from 'react-router-dom';
 
 
 //Componentes
-import Modal from '../Modal';
+import Modal from '../../../components/Modal';
+import SelectLevel from '../../../components/Professor/SelectLevel';
 
 //Estilos
 import './Menu_Cards.scss';
@@ -17,8 +18,41 @@ import Grafico from '../../../assets/icons/analytics.png';
 
 export default function Menu_Cards(){
     const {colegio,estudiante,username,game} = useParams();
+
+    //Constantes para el modal
+    const [isVisibleModal,setIsVisibleModal] = useState(false);
+    const [modalTitle,setModalTitle] = useState("");
+    const [modalContent,setModalContent] = useState(null);
+
+
+
+    const selectLevelModal = () =>{
+        setIsVisibleModal(true);
+        setModalTitle("Seleccione el Nivel");
+        setModalContent(
+            <SelectLevel
+                colegio={colegio}
+                estudiante={estudiante}
+                username={username}
+                game={game}
+            />
+        )
+    }
+
     return(
+
+
+
         <div className="content-menu">
+
+            <Modal
+                title={modalTitle}
+                isVisible={isVisibleModal}
+                setIsVisible={setIsVisibleModal}
+             >
+                {modalContent}
+            </Modal>
+
             <Row >
                 <Col span={8}>
                 </Col>
@@ -36,8 +70,8 @@ export default function Menu_Cards(){
             <Row gutter={16}>
 
                 <Col span={8}>
-                    <Link to ={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones`}>
-                        <div className="content-menu__card">
+                    {/* <Link to ={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones`}> */}
+                        <div className="content-menu__card" onClick={selectLevelModal}>
                             <div className="content-menu__card__imagen">
                                 <img src={Nivel}/>
                             </div>
@@ -45,7 +79,7 @@ export default function Menu_Cards(){
                                 <span>Nivel</span>
                             </div>
                         </div>
-                    </Link>
+                    {/* </Link> */}
                 </Col>
 
                 <Col span={8}>

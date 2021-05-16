@@ -11,6 +11,7 @@ export default function Modal(props){
             visible={isVisible}
             onCancel={()=>setIsVisible(false)}
             footer={false}
+        
         >
             {children}
         </ModalAntd>
