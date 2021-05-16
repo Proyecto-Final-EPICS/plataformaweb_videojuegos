@@ -9,7 +9,7 @@ import './ListGames.scss';
 
 export default function ListGames(props){
     const {games} = props;
-    games.shift();
+    // games.shift();
     return(
         <div className="list-games">
             <Juegos games={games}/>
