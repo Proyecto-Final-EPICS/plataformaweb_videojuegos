@@ -49,7 +49,7 @@ export default function Menu_Cards(){
                 title={modalTitle}
                 isVisible={isVisibleModal}
                 setIsVisible={setIsVisibleModal}
-             >
+            >
                 {modalContent}
             </Modal>
 

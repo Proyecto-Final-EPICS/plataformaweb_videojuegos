@@ -42,3 +42,25 @@ export function getSessionsByStudentUserNameApi(data){
         return err.message;
     })
 }
+
+//Endpoint que devuelve los niveles jugados dado un juego y un estudiante
+export function getLevelsPlayed(username,game){
+    const url = `${basePath}/GameLevels?username=${username}&game=${game}`
+    const params = {
+        method: 'GET',
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    }
+
+    return fetch(url,params)
+    .then(response => {
+        return response.json();
+    })
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err.message;
+    })
+}
