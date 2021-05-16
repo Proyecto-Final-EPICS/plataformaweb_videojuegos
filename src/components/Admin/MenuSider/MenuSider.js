@@ -22,10 +22,24 @@ function MenuSider(props){
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key="/admin-home/colegios">
-                    <Link to={"/admin-home/colegios"}>
+                <Menu.Item key="/admin-home/games">
+                    <Link to={"/admin-home/games"}>
+                        <SolutionOutlined />
+                        <span className="nav-text">Videojuegos</span>
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key="/admin-home/schools">
+                    <Link to={"/admin-home/schools"}>
                         <SolutionOutlined />
                         <span className="nav-text">Colegios</span>
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key="/admin-home/professors">
+                    <Link to={"/admin-home/professors"}>
+                        <SolutionOutlined />
+                        <span className="nav-text">Profesores</span>
                     </Link>
                 </Menu.Item>
 
