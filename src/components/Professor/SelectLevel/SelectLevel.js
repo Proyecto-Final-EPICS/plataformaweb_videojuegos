@@ -1,7 +1,7 @@
 //Liberias
 import React,{useState,useEffect} from 'react';
-import {Select} from 'antd';
-
+import {Select,Button} from 'antd';
+import {Link} from 'react-router-dom';
 
 //Api
 import {getLevelsPlayed} from '../../../api/sessions';
@@ -9,6 +9,7 @@ import {getLevelsPlayed} from '../../../api/sessions';
 export default function SelectLevel(props){
     const {colegio,estudiante,username,game} = props;
     const [levels,setLevels] = useState([]);
+    const [option,setOption] = useState("");
     const {Option} = Select;
 
 
@@ -33,27 +34,33 @@ export default function SelectLevel(props){
     },[])
 
 
-    const goLevel = (value) =>{
-        console.log(`seleccionado ${value}`);
+    const goLevel = () =>{
+
+        console.log(`seleccionado ${option}`);
+        
+    }
+
+
+    const handleChange = (value) =>{
+        setOption(value);
     }
 
     const renderOptions = levels.map((l,index )=> {
-        // <Option value={l}> Nivel {l}</Option>
-        <li>{l}</li>
-
-    })
+        return (<Option key={l}> Nivel {l}</Option>)
+    });
 
     return(
-        // <Select style={{ width: 120}}>
-        //     {levels.map((level) => {
-        //         console.log(level);
-        //         <Option key={level}>Nivel {level}</Option>
-        //     })}
-        //     <Option value="1">Nivel </Option>
-        // </Select>
         <div>
-           <ul>{renderOptions}</ul>
-            
+            <Select style={{ width: 120}} onChange={handleChange}>
+             {renderOptions}
+            </Select>
+
+            <Link to={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones`}>
+                <Button type="primary">
+                    Ir
+                </Button>
+            </Link>
         </div>
+        
     );
 }
