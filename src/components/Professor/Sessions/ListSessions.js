@@ -1,5 +1,5 @@
 //Liberiras
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {List,Table,Button} from 'antd';
 import {Link,useParams} from 'react-router-dom';
 
@@ -8,50 +8,35 @@ import './ListSessions.scss';
 
 export default function ListSessions(props){
     const {sessions} = props;
-    console.log(sessions);
-    const {colegio,estudiante,username,game} = useParams();
+    const {colegio,estudiante,username,game,nivel} = useParams();
+    const [currentLevel,setCurrentLevel] = useState([]);
     const columns = [
         {
             title: "Nro de Sesión",
             dataIndex: "nro_de_sesion",
             key:"nro_de_sesion"
-        },
-        {
-            title: "Juego",
-            dataIndex: "juego",
-            key: "juego"
-        },
-        {
-            title: "Nro de Fallas",
-            dataIndex: "nro_de_fallas",
-            key: "nro_de_fallas"
-        },
-        {
-            title: "Tiempo de nivel",
-            dataIndex: "tiempo_de_nivel",
-            key: "tiempo_de_nivel"
-        },
-        {
-            title: "Acción",
-            key: "accion",
-            render: (text,record) =>(
-                <Link to={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones/${record.nro_de_sesion}`}>
-                    Entrar
-                </Link>
-            )
         }
     ]
 
 
-    //Buscar un estudiante para que pruebe de verdad, que no arme algo de 0 si no algo ya dado 3 y 3 instrucciones bien claras
-    //A nivel de jugador o por nivel 
-    //No mostrar toda la tabla
-    // return(
-    //     <div>
-    //        <Sessions sessions={sessions}/>
-    //     </div>
-        
-    // );
+    useEffect(()=>{
+        console.log("Effect");
+        setCurrentLevel(getColumns(sessions));
+    },[])
+
+    const getColumns = (sessions) =>{
+        const aux = [];
+        sessions.forEach((session,index) =>{
+            if(session[0].level == nivel){
+                aux.push(session[0]);
+                // setCurrentLevel([...currentLevel,session[0]])
+            }
+        })
+
+        return aux;
+    }
+ 
+    
 
     const info = (sessions) =>{
         //console.log(sessions);
@@ -75,13 +60,16 @@ export default function ListSessions(props){
         return dataSource;
     }
 
+    // console.log(currentLevel);
     return(
         <div className="nivel-content">
             <Button className="nivel-content__button">
               Gráficos del nivel
             </Button>
 
-            <Table dataSource={info(sessions)} columns={columns} />
+            {/* <Table dataSource={info(sessions)} columns={columns}/> */}
+            <Table columns={columns}/>
+
         </div>
     )
 }
@@ -93,38 +81,3 @@ export default function ListSessions(props){
 
 
 
-//Esto no se está usando, pues se está mostrando por medio de la tabla
-function Sessions(props) {
-    const { sessions } = props;
-    console.log(sessions);
-    return (
-        <List
-            className="sessions"
-            itemLayout="horizontal"
-            dataSource={sessions}
-            renderItem={session => <Session
-                session={session}
-
-            />}
-        />
-    );
-
-}
-
-function Session(props) {
-    const {session} = props;
-    //console.log(session);
-    return (
-        <List.Item>
-            <List.Item.Meta
-                title={`
-                    ${session.Game.nameGame} -->
-                    ${session.Game.levels[0].parameters[0].name} /
-                    ${session.Game.levels[0].parameters[0].value} -->
-                    ${session.Game.levels[0].parameters[1].name} /
-                    ${session.Game.levels[0].parameters[1].value}
-                `}
-            />
-        </List.Item>
-    );
-}

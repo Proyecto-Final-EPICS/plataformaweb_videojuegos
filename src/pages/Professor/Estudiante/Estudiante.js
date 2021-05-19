@@ -7,7 +7,7 @@ import {useLocation,useParams} from 'react-router-dom';
 import ListSessions from '../../../components/Professor/Sessions';
 
 //API
-import {getSessionsByStudentUserNameApi} from '../../../api/sessions';
+import {getSessionsByStudentUserNameApi,getLevelsPlayed} from '../../../api/sessions';
 
 //Estilos
 import './Estudiante.scss';
@@ -26,8 +26,11 @@ export default function Estudiante(){
     useEffect(()=>{
         data.username = username;
         data.gameName = game;
-        getSessionsByStudentUserNameApi(data).then(response =>{
-          setSessions(response);
+        // getSessionsByStudentUserNameApi(data).then(response =>{
+        //   setSessions(response);
+        // })
+        getLevelsPlayed(data.username,data.gameName).then(response =>{
+            setSessions(response);
         })
     },[])
 
