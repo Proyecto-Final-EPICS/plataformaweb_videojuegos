@@ -1,8 +1,8 @@
 //Librerias
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Button} from 'antd';
-import {MenuUnfoldOutlined, PoweroffOutlined, MenuFoldOutlined} from '@ant-design/icons';
+import {Button, Dropdown, Menu} from 'antd';
+import {UserOutlined, PoweroffOutlined, DownOutlined} from '@ant-design/icons';
 
 
 
@@ -12,32 +12,40 @@ import './MenuTop.scss';
 //Assets
 import logo from '../../../assets/img/palanca-de-mando.png';
 
-
-
 export default function MenuTop(props){
     const {menuCollapsed, setMenuCollapsed} = props;
 
     const logoutUser =  () => {
-        window.location.href="/";
+        window.location.href="/admin";
     }
 
+    const menu = (
+        <Menu>
+            <Menu.Item>
+                <Button type="link" onClick={logoutUser}> 
+                    Logout
+                    <PoweroffOutlined/>
+                </Button>
+            </Menu.Item>
+        </Menu>
+    )
     
     return(
-        <div className="menu-top">
-            <Link to="/admin-home">
+        <div className="admin-menu-top">
+            <Button type="link" onClick={() => setMenuCollapsed(!menuCollapsed)} >
                 <img
-                    className="menu-top__left-logo"
+                    className="admin-menu-top__left-logo"
                     src={logo}
                     alt="logo joystick"
                 />
-            </Link>
-            <Button type="link" onClick={() => setMenuCollapsed(!menuCollapsed)} >
-                {menuCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
             </Button>
-            <div className="menu-top__ight">
-                <Button type="link" onClick={logoutUser}> 
-                    <PoweroffOutlined/>
-                </Button>
+            <div className="admin-menu-top__right">
+                <UserOutlined />
+                <Dropdown overlay={menu}>
+                    <a target="_blank" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                        <span className="admin-menu-top__right__user">{"user"}</span>  <DownOutlined />
+                    </a>
+               </Dropdown>
             </div>
 
         </div>

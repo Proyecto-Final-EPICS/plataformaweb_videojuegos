@@ -1,7 +1,7 @@
 //Liberías
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import {Route,Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 //Componentes
@@ -11,39 +11,41 @@ import MenuSider from '../components/Admin/MenuSider';
 //Estilos
 import "./LayoutAdmin.scss";
 
-export default function LayoutAdmin(props){
+export default function LayoutAdmin(props) {
     const { routes } = props;
-    const { Header , Content, Footer } = Layout;
-    const [menuCollapsed,setMenuCollapsed] = useState(false); //Para desplegar el menu
-   
+    const { Header, Content, Footer } = Layout;
+    const [menuCollapsed, setMenuCollapsed] = useState(false); //Para desplegar el menu
 
-    return(
+
+    return (
 
         <Layout>
-           <MenuSider menuCollapsed={menuCollapsed}/>
-           <Layout className="layout-admin" style={{ marginLeft: menuCollapsed ? "80px" : "200px"}}>
-               <Header className="layout-admin__header">
-                  <MenuTop menuCollapsed= {menuCollapsed}
-                  setMenuCollapsed = {setMenuCollapsed} />
-               </Header>
-                <Content className="layout-admin__content">
-                    <LoadRouters routes={routes}/>
-                </Content>
-                <Footer style={{textAlign: 'center'}} className="layout-basic__footer">
-                    EPICS IEEE    
-                </Footer>   
-           </Layout>
-       </Layout>
+            <Content>
+                <MenuSider menuCollapsed={menuCollapsed} className="menu-sider"/>
+                <Layout className="layout-admin" style={{ marginLeft: menuCollapsed ? "80px" : "200px" }}>                    
+                    <Content className="layout-admin__content">
+                        <LoadRouters routes={routes} />
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }} className="layout-basic__footer">
+                        EPICS IEEE
+                    </Footer>
+                </Layout>
+                <Header className="layout-admin__header">
+                    <MenuTop menuCollapsed={menuCollapsed} setMenuCollapsed={setMenuCollapsed} />
+                </Header>
+            </Content>
+        </Layout>
+
 
     );
 }
 
-function LoadRouters(props){
+function LoadRouters(props) {
     const { routes } = props;
 
-    return(
+    return (
         <Switch>
-            {routes.map((route,index) =>(
+            {routes.map((route, index) => (
                 <Route
                     key={index}
                     path={route.path}
@@ -53,6 +55,5 @@ function LoadRouters(props){
             ))}
         </Switch>
     );
-   
-}
 
+}

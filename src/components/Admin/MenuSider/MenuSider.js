@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import {HomeOutlined, SolutionOutlined} from '@ant-design/icons';
+import {HomeOutlined, UserOutlined, DesktopOutlined} from '@ant-design/icons';
 
 
 //Estilos
@@ -14,32 +14,26 @@ function MenuSider(props){
 
     return(
         <Sider className="admin-sider" collapsed={menuCollapsed}>
-            <Menu mode="inline" defaultSelectedKeys={[location.pathname]}>
-                <Menu.Item key="/admin-home">
-                    <Link to={"/admin-home"}>
-                        <HomeOutlined />
-                        <span className="nav-text">Home</span>
-                    </Link>
-                </Menu.Item>
+            <Menu mode="inline" defaultSelectedKeys={[location.pathname]} className="admin-sider__menu">
 
-                <Menu.Item key="/admin-home/games">
-                    <Link to={"/admin-home/games"}>
-                        <SolutionOutlined />
-                        <span className="nav-text">Videojuegos</span>
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key="/admin-home/schools">
+                <Menu.Item key="/admin-home/schools" className="admin-sider__item">
                     <Link to={"/admin-home/schools"}>
-                        <SolutionOutlined />
+                        <HomeOutlined />
                         <span className="nav-text">Colegios</span>
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key="/admin-home/professors">
+                <Menu.Item key="/admin-home/professors" className="admin-sider__item">
                     <Link to={"/admin-home/professors"}>
-                        <SolutionOutlined />
+                        <UserOutlined />
                         <span className="nav-text">Profesores</span>
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key="/admin-home/games" className="admin-sider__item">
+                    <Link to={"/admin-home/games"}>
+                        <DesktopOutlined />
+                        <span className="nav-text">Videojuegos</span>
                     </Link>
                 </Menu.Item>
 

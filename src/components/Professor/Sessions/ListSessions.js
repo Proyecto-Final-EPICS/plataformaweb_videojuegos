@@ -7,9 +7,9 @@ import {Link,useParams} from 'react-router-dom';
 import './ListSessions.scss';
 
 export default function ListSessions(props){
-    const {currentLevel} = props;
+    const {sessions} = props;
     const {colegio,estudiante,username,game,nivel} = useParams();
-    //const [currentLevel,setCurrentLevel] = useState([]);
+    const [currentLevel,setCurrentLevel] = useState([]);
     console.log(currentLevel);
     const columns = [
         {
@@ -20,10 +20,10 @@ export default function ListSessions(props){
     ]
 
 
-    // useEffect(()=>{
-    //     console.log("Effect");
-    //     setCurrentLevel(getColumns(sessions));
-    // },[])
+    useEffect(()=>{
+         console.log("Effect");
+         setCurrentLevel(getColumns(sessions));
+     },[])
 
    
 

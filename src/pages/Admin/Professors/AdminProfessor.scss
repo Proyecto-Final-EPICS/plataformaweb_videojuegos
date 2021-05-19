@@ -2,37 +2,39 @@
 
 
 
-
-.colegio__titulo{
-    background: $background-purple-light3;
+.professor__button{
+    background: $background-purple-dark;
     border-radius: 20px;
     box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
     padding: 5px;
-    margin-bottom: 15px;
-    width: 200px;
+    margin-bottom: 20px;
+    width: 180px;
+    height: 15%;
     font-family: 'Secular one',sans-serif;
-    color: $font-grey;
+    color: white;
     text-align: center;
     font-size: 15px;
+    border: none;
 }
-
-.colegio-contenido{
+.admin-professor-contenido{
+    padding: 2em;
 
     &__header{
-        // display: flex;
-        // align-items: center;
-        // justify-content: space-around;
         display: grid;
-        grid-template-columns: 56% 16%;
-        background: $background-purple-light4;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        background:  $background-orange-ligth;
         font-family: 'Secular one',sans-serif;
         margin-bottom: 15px;
         border-radius: 20px;
-        // height: 40px;
-       
+        text-align: center;
+        min-width: min-content;
+        padding-right: 5em;
 
         &__col{
-            //margin-top: 5px;
+            width: 95%;
+            height: 87%;
+            min-width: 85px;
             font-size: 18px;
             text-align: center;
             h1{
@@ -47,4 +49,5 @@
         border-radius: 20px;
     }
 }
+
 
