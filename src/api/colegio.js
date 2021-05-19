@@ -91,3 +91,36 @@ export function getGameByStudentApi(name){
         return err.message;
     })
 }
+
+//Endpoint para agregar un estudiante
+export function addStudent(info){
+    console.log(info);
+    const data = {
+        schoolName: info.schoolName,
+        students:{
+            studentName: info.studentName,
+            age: info.age,
+            username: info.username,
+            password: info.password
+        }
+    }
+    const url = `${basePath}/student`;
+    const params = {
+        method: 'PUT',
+        body: JSON.stringify(info),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }
+
+    return fetch(url,params)
+    .then(response => {
+        return response.json()
+    })
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err.message;
+    })
+}

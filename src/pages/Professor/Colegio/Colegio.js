@@ -5,6 +5,9 @@ import {Layout,Button} from 'antd';
 
 //Componentes
 import ListStudents from '../../../components/Professor/Estudiantes/ListStudents';
+import AddStudentForm from '../../../components/Professor/Forms/AddStudentForm';
+import Modal from '../../../components/Modal';
+
 
 //API
 import {getEstudiantesByColegio} from '../../../api/colegio';
@@ -19,23 +22,50 @@ export default function Colegio(){
     const {Content,Header} = Layout;
     const col = useLocation().pathname.split("/")[3];
 
+    //Constantes para el modal
+    const [isVisibleModal,setIsVisibleModal] = useState(false);
+    const [modalTitle,setModalTitle] = useState("");
+    const [modalContent,setModalContent] = useState(null);
+
   
 
     useEffect(()=>{
+        let isMounted = true;
         getEstudiantesByColegio(colegio).then(response =>{
             setStudents(response);
         })
+        return () =>{isMounted = false};
     },[])
+
+    const addStudent = () =>{
+        setIsVisibleModal(true);
+        setModalTitle(`Agregar estudiante a ${col}`);
+        setModalContent(
+            <AddStudentForm
+                setIsVisibleModal = {setIsVisibleModal}
+                colegio = {colegio}
+            />
+        )
+    }
+
 
     return(
         <Layout>
+
+            <Modal
+                title={modalTitle}
+                isVisible={isVisibleModal}
+                setIsVisible={setIsVisibleModal}
+            >
+                {modalContent}
+            </Modal>
 
             <div className="col-top">
                 <div className="col-top__titulo">
                     {col}
                 </div>
 
-                <Button className="col-top__button">
+                <Button className="col-top__button" onClick={addStudent}>
                     Agregar estudiante
                 </Button>
             </div>

@@ -22,6 +22,7 @@ export default function Colegios(){
     const {Content,Header} = Layout;
     const {user} = useAuth().user;
 
+    
     useEffect(() => {
         getColegiosByProfessorApi(user)
         .then(response => {
@@ -35,9 +36,10 @@ export default function Colegios(){
         })
     },[])
 
-
+   
     return(
         <Layout>
+           
 
             <div className="colegio__titulo">
                 Colegios asignados
