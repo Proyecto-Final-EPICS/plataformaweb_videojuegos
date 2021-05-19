@@ -1,7 +1,7 @@
 //Liberias
 import React,{useState,useEffect} from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import {Layout} from 'antd';
+import {Layout,Button} from 'antd';
 
 //Componentes
 import ListStudents from '../../../components/Professor/Estudiantes/ListStudents';
@@ -29,9 +29,17 @@ export default function Colegio(){
 
     return(
         <Layout>
-            <div className="col__titulo">
-               {col}
+
+            <div className="col-top">
+                <div className="col-top__titulo">
+                    {col}
+                </div>
+
+                <Button className="col-top__button">
+                    Agregar estudiante
+                </Button>
             </div>
+           
             
             <div className="col-contenido">
 

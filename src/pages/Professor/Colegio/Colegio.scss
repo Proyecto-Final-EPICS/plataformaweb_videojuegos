@@ -1,16 +1,32 @@
 @import '../../../scss/index.scss'; 
 
-.col__titulo{
-    background: $background-purple-light3;
-    border-radius: 20px;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
-    padding: 5px;
-    margin-bottom: 15px;
-    width: 15%;
-    font-family: 'Secular one',sans-serif;
-    color: $font-grey;
-    text-align: center;
-    font-size: 15px;
+
+
+.col-top{
+    display: flex;
+    justify-content: space-around;
+    &__button{
+        background: $background-orange;
+        width: 15%;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+        font-family: 'Secular one',sans-serif;
+        color: white;
+    }
+
+    &__titulo{
+        background: $background-purple-light3;
+        border-radius: 20px;
+        box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+        padding: 5px;
+        margin-bottom: 15px;
+        width: 15%;
+        font-family: 'Secular one',sans-serif;
+        color: $font-grey;
+        text-align: center;
+        font-size: 15px;
+    }
 }
 
 .col-contenido{
