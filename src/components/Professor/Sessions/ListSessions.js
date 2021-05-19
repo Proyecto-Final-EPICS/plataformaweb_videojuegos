@@ -1,14 +1,15 @@
 //Liberiras
 import React from 'react';
-import {List,Table} from 'antd';
+import {List,Table,Button} from 'antd';
 import {Link,useParams} from 'react-router-dom';
+
+//Estilos
+import './ListSessions.scss';
 
 export default function ListSessions(props){
     const {sessions} = props;
     console.log(sessions);
     const {colegio,estudiante,username,game} = useParams();
-    // const {pathname} = useLocation()
-    // console.log(pathname.split("/"))
     const columns = [
         {
             title: "Nro de Sesión",
@@ -75,10 +76,24 @@ export default function ListSessions(props){
     }
 
     return(
-        <Table dataSource={info(sessions)} columns={columns} />
+        <div className="nivel-content">
+            <Button className="nivel-content__button">
+              Gráficos del nivel
+            </Button>
+
+            <Table dataSource={info(sessions)} columns={columns} />
+        </div>
     )
 }
 
+
+
+
+
+
+
+
+//Esto no se está usando, pues se está mostrando por medio de la tabla
 function Sessions(props) {
     const { sessions } = props;
     console.log(sessions);

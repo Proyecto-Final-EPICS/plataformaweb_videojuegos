@@ -70,8 +70,8 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                 exact: true
             },
             {
-                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/sesiones/:nivel",
-                component: Graficos,
+                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/sesiones/nivel-:nivel",
+                component: Estudiante,
                 exact: true
             },
             {
