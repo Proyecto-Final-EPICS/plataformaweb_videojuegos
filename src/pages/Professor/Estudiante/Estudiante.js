@@ -21,7 +21,11 @@ export default function Estudiante(){
 
     const [sessions,setSessions] = useState([]);
     const username = useLocation().pathname.split("/")[5].split("-")[1];
-    const {game} = useParams();
+    const {game,nivel} = useParams();
+
+
+    const [currentLevel,setCurrentLevel] = useState([]);
+
    
     useEffect(()=>{
         data.username = username;
@@ -31,13 +35,28 @@ export default function Estudiante(){
         // })
         getLevelsPlayed(data.username,data.gameName).then(response =>{
             setSessions(response);
+            setCurrentLevel(getColumns(sessions));
         })
     },[])
+
+
+    const getColumns = (sessions) =>{
+        const aux = [];
+        sessions.forEach((session,index) =>{
+            if(session[0].level == nivel){
+                aux.push(session[0]);
+                // setCurrentLevel([...currentLevel,session[0]])
+            }
+        })
+
+        return aux;
+    }
+ 
 
     return(
         <Layout>
             <Content>
-                <ListSessions sessions={sessions}/>
+                <ListSessions sessions={currentLevel}/>
             </Content>
            
         </Layout>

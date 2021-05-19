@@ -7,9 +7,10 @@ import {Link,useParams} from 'react-router-dom';
 import './ListSessions.scss';
 
 export default function ListSessions(props){
-    const {sessions} = props;
+    const {currentLevel} = props;
     const {colegio,estudiante,username,game,nivel} = useParams();
-    const [currentLevel,setCurrentLevel] = useState([]);
+    //const [currentLevel,setCurrentLevel] = useState([]);
+    console.log(currentLevel);
     const columns = [
         {
             title: "Nro de Sesión",
@@ -19,10 +20,12 @@ export default function ListSessions(props){
     ]
 
 
-    useEffect(()=>{
-        console.log("Effect");
-        setCurrentLevel(getColumns(sessions));
-    },[])
+    // useEffect(()=>{
+    //     console.log("Effect");
+    //     setCurrentLevel(getColumns(sessions));
+    // },[])
+
+   
 
     const getColumns = (sessions) =>{
         const aux = [];
@@ -40,7 +43,6 @@ export default function ListSessions(props){
 
     const info = (sessions) =>{
         //console.log(sessions);
-
         const dataSource = []
         sessions.forEach((session,index) => {
             const data = {
@@ -60,7 +62,7 @@ export default function ListSessions(props){
         return dataSource;
     }
 
-    // console.log(currentLevel);
+    //console.log(currentLevel);
     return(
         <div className="nivel-content">
             <Button className="nivel-content__button">
