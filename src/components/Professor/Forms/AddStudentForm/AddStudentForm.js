@@ -29,7 +29,9 @@ export default function AddStudentForm(props){
 
     
    useEffect(()=>{
+        let isMounted = true;
         setUserData({...userData, schoolName: colegio})
+        return () =>{isMounted = false};
    },[])
 
     const addUser = event => {

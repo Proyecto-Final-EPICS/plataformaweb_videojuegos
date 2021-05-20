@@ -24,6 +24,7 @@ export default function Colegios(){
 
     
     useEffect(() => {
+        let isMounted = true;
         getColegiosByProfessorApi(user)
         .then(response => {
             if(response == "Failed to fetch"){
@@ -34,6 +35,7 @@ export default function Colegios(){
                 setColegios(response);
             }
         })
+        return () =>{isMounted = false};
     },[])
 
    

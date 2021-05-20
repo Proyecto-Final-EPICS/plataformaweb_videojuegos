@@ -14,6 +14,7 @@ export default function SelectLevel(props){
 
 
     useEffect(()=>{
+        let isMounted = true;
         getLevelsPlayed(username,game).then(response =>{
            const aux = [];
            let sw = true;
@@ -31,6 +32,7 @@ export default function SelectLevel(props){
            });
            setLevels(aux);
         })
+        return () =>{isMounted = false};
     },[])
 
 

@@ -28,6 +28,7 @@ export default function Estudiante(){
 
    
     useEffect(()=>{
+        let isMounted = true;
         data.username = username;
         data.gameName = game;
         // getSessionsByStudentUserNameApi(data).then(response =>{
@@ -37,6 +38,7 @@ export default function Estudiante(){
             setSessions(response);
             setCurrentLevel(getColumns(sessions));
         })
+        return () =>{isMounted = false};
     },[])
 
 

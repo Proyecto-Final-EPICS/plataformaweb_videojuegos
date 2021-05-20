@@ -20,10 +20,12 @@ export default function GamesStudent(){
     
 
     useEffect(() => {
+        let isMounted = true;
         getGameByStudentApi(username)
         .then(response => {
           setGames(response)
         })
+        return () =>{isMounted = false};
     },[])
 
     return(
