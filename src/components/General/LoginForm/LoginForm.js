@@ -60,7 +60,6 @@ export default function LoginForm(){
 
             window.location.href= "/home";
         }
-        console.log(result);
     }
 
     return(

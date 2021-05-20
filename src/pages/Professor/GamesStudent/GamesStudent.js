@@ -28,7 +28,7 @@ export default function GamesStudent(){
 
     return(
         <Layout>
-            <div className="col__titulo">
+            <div className="col-je__titulo">
                 Videojuegos jugados
             </div>
             

@@ -98,16 +98,16 @@ export function addStudent(info){
     const data = {
         schoolName: info.schoolName,
         students:{
-            studentName: info.studentName,
-            age: info.age,
-            username: info.username,
-            password: info.password
+            studentName: info.students.studentName,
+            age: info.students.age,
+            username: info.students.username,
+            password: info.students.password
         }
     }
     const url = `${basePath}/student`;
     const params = {
         method: 'PUT',
-        body: JSON.stringify(info),
+        body: JSON.stringify(data),
         headers:{
             "Content-Type":"application/json"
         }

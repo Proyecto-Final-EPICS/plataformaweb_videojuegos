@@ -19,6 +19,7 @@ import './Colegio.scss';
 export default function Colegio(){
     const {colegio} = useParams();
     const [students,setStudents] = useState([]);
+    const [reloadStudents,setReloadStudents] = useState(false);
     const {Content,Header} = Layout;
     const col = useLocation().pathname.split("/")[3];
 
@@ -33,9 +34,10 @@ export default function Colegio(){
         let isMounted = true;
         getEstudiantesByColegio(colegio).then(response =>{
             setStudents(response);
+            setReloadStudents(false)
         })
         return () =>{isMounted = false};
-    },[])
+    },[reloadStudents])
 
     const addStudent = () =>{
         setIsVisibleModal(true);
@@ -44,6 +46,7 @@ export default function Colegio(){
             <AddStudentForm
                 setIsVisibleModal = {setIsVisibleModal}
                 colegio = {colegio}
+                setReloadStudents={setReloadStudents}
             />
         )
     }

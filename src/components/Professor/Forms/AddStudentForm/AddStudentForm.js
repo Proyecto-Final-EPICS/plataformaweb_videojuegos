@@ -1,5 +1,5 @@
 //Liberias
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { Form, Input,  Button, Row, Col, notification} from 'antd';
 import {  UserOutlined, FileOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -13,28 +13,41 @@ import './AddStudentForm.scss'
 
 
 export default function AddStudentForm(props){
-    const {setIsVisibleModal,colegio} = props;
+    const {setIsVisibleModal,colegio,setReloadStudents} = props;
     const [userData, setUserData] = useState({
-        schoolName: ""
+        schoolName: "",
+        students: null
     });
+    const [students, setStudents] = useState({
+        students:{
+            studentName: "",
+            age: "",
+            username: "",
+            password: ""
+        }
+    })
 
+    
+   useEffect(()=>{
+        setUserData({...userData, schoolName: colegio})
+   },[])
 
     const addUser = event => {
-        setUserData({...userData, schoolName: colegio})
-        if ( !userData.studentName || !userData.password || !userData.repeatPassword  || !userData.age || !userData.username || !userData.lastName) {
-            notification["error"]({message:"Todos los campos son obligadorios"});
+        if ( !students.studentName || !students.password  || !students.age || !students.username) {
+            notification.error({message:"Todos los campos son obligadorios"});
         } else if (userData.password !== userData.repeatPassword) {
-            notification["error"]({message:"Las contraseñas tienen que ser iguales"})
+            notification.error({message:"Las contraseñas tienen que ser iguales"})
         } else {
             addStudent(userData)
             .then(response => {
                 notification["success"]({message: response});
                 setIsVisibleModal(false);
+                setReloadStudents(true);
                 // setReloadUsers(true);
                 setUserData({});//Resetear el formulario
             })
             .catch(err => {
-                notification["error"]({message: err});
+                notification.error({message: err});
             });
         }
     }
@@ -44,6 +57,8 @@ export default function AddStudentForm(props){
             <AddForm
                 userData={userData}
                 setUserData={setUserData}
+                students={students}
+                setStudents={setStudents}
                 addUser={addUser}
             />
         </div>
@@ -52,10 +67,19 @@ export default function AddStudentForm(props){
 
 
 function AddForm(props){
-    const { userData, setUserData, addUser } = props;
+    const { userData, setUserData, addUser,students,setStudents } = props;
+
+    const changeForm = e =>{
+        setStudents({...students, [e.target.name]: e.target.value})
+        setUserData({
+            ...userData,
+            ['students']:students
+        });
+    }
+
     
     return(
-        <Form className="form-add" onFinish={addUser}> 
+        <Form className="form-add" onChange={changeForm} onFieldsChange={addUser}> 
 
             <Row gutter={24}>  
                 <Col span={12}>
@@ -63,69 +87,49 @@ function AddForm(props){
                         <Input
                             prefix={<UserOutlined/>}
                             placeholder="Nombre"
-                            value={userData.studentName}
-                            onChange={e => setUserData({...userData, studentName: e.target.value})}
+                            name="studentName"
+                            // value={userData.studentName}
+                            // onChange={e => setUserData({...userData, studentName: e.target.value})}
                         />
                     </Form.Item>
                 </Col>
-                <Col span={12}>
-                    <Form.Item>
-                        <Input
-                            prefix={<UserOutlined/>}
-                            placeholder="Apellido"
-                            value={userData.lastName}
-                            onChange={e => setUserData({...userData, lastName: e.target.value})}
-                        />
-                    </Form.Item>
-                </Col>
-            </Row>
-
-            <Row gutter={24}>  
                 <Col span={12}>
                     <Form.Item>
                         <Input
                             type="number"
                             prefix={<FileOutlined/>}
                             placeholder="Edad"
-                            value={userData.age}
-                            onChange={e => setUserData({...userData, age: e.target.value})}
+                            name="age"
+                            // value={userData.age}
+                            // onChange={e => setUserData({...userData, age: e.target.value})}
                         />
                     </Form.Item>
                 </Col>
+            </Row>
+
+            <Row gutter={24}>  
+                
                 <Col span={12}>
                     <Form.Item>
                         <Input
                             type="text"
                             prefix={<UserOutlined />}
                             placeholder="Usuario"
-                            value={userData.username}
-                            onChange={e => setUserData({...userData, username: e.target.value})}
+                            name="username"
+                            // value={userData.username}
+                            // onChange={e => setUserData({...userData, username: e.target.value})}
                         />
                     </Form.Item>
                 </Col>
-               
-            </Row>
-
-            <Row gutter={24}>  
                 <Col span={12}>
                     <Form.Item>
                         <Input
                             type="password"
                             prefix={<LockOutlined />}
                             placeholder="Contraseña"
-                            value={userData.password}
-                            onChange={e => setUserData({...userData, password: e.target.value})}
-                        />
-                    </Form.Item>
-                </Col>
-                <Col span={12}>
-                    <Form.Item>
-                        <Input
-                            type="password"
-                            prefix={<LockOutlined />}
-                            placeholder="Repetir contraseña"
-                            value={userData.repeatPassword}
-                            onChange={e => setUserData({...userData, repeatPassword: e.target.value})}
+                            name="password"
+                            // value={userData.password}
+                            // onChange={e => setUserData({...userData, password: e.target.value})}
                         />
                     </Form.Item>
                 </Col>
