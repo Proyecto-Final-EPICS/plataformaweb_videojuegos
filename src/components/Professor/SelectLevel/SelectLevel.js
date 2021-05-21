@@ -17,20 +17,12 @@ export default function SelectLevel(props){
         let isMounted = true;
         getLevelsPlayed(username,game).then(response =>{
            const aux = [];
-           let sw = true;
            response.forEach(res =>{
-               if(sw == true){
-                   aux.push(res[0].level);
-                   sw = false;
-               }else{
-                   aux.forEach(level => {
-                       if(level != res[0].level){
-                            aux.push(res[0].level)
-                       }    
-                   });
-               }
+               aux.push(res[0].level);
            });
-           setLevels(aux);
+           const aux2 = new Set(aux);
+           let result = [...aux2];
+           setLevels(result);
         })
         return () =>{isMounted = false};
     },[])

@@ -15,9 +15,10 @@ import './AddStudentForm.scss'
 export default function AddStudentForm(props){
     const {setIsVisibleModal,colegio,setReloadStudents} = props;
     const [userData, setUserData] = useState({
-        schoolName: "",
+        schoolName: colegio,
         students: null
     });
+
     const [students, setStudents] = useState({
         students:{
             studentName: "",
@@ -47,6 +48,7 @@ export default function AddStudentForm(props){
                 setReloadStudents(true);
                 // setReloadUsers(true);
                 setUserData({});//Resetear el formulario
+
             })
             .catch(err => {
                 notification.error({message: err});
