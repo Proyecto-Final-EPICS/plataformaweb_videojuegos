@@ -7,10 +7,9 @@ import {Link,useParams} from 'react-router-dom';
 import './ListSessions.scss';
 
 export default function ListSessions(props){
-    const {sessions} = props;
+    const {sessions,currentLevel} = props;
+    //console.log(currentLevel);
     const {colegio,estudiante,username,game,nivel} = useParams();
-    const [currentLevel,setCurrentLevel] = useState([]);
-    console.log(currentLevel);
     const columns = [
         {
             title: "Nro de Sesión",
@@ -19,38 +18,25 @@ export default function ListSessions(props){
         }
     ]
 
+    // currentLevel[0].parameters.forEach(par =>{
+    //     const c = {
+    //         title: par.name,
+    //         dataIndex: par.name,
+    //         key: par.name
+    //     }
+    //     columns.push(c);
+    // })
 
-    useEffect(()=>{
-         console.log("Effect");
-         setCurrentLevel(getColumns(sessions));
-     },[])
 
-   
-
-    const getColumns = (sessions) =>{
-        const aux = [];
-        sessions.forEach((session,index) =>{
-            if(session[0].level == nivel){
-                aux.push(session[0]);
-                // setCurrentLevel([...currentLevel,session[0]])
-            }
-        })
-
-        return aux;
-    }
  
     
 
     const info = (sessions) =>{
-        //console.log(sessions);
         const dataSource = []
         sessions.forEach((session,index) => {
             const data = {
                 key:0,
-                nro_de_sesion: index,
-                juego:"",
-                nro_de_fallas:"",
-                tiempo_de_nivel:""            
+                nro_de_sesion: index          
             }
             data.key = index;
             data.nro_de_sesion = index + 1;
@@ -62,8 +48,8 @@ export default function ListSessions(props){
         return dataSource;
     }
 
-    //console.log(currentLevel);
     return(
+
         <div className="nivel-content">
             <Button className="nivel-content__button">
               Gráficos del nivel

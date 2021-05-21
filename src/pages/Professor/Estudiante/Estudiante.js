@@ -36,29 +36,32 @@ export default function Estudiante(){
         // })
         getLevelsPlayed(data.username,data.gameName).then(response =>{
             setSessions(response);
-            setCurrentLevel(getColumns(sessions));
+            console.log("Response",response);
+            
         })
+        getColumns(sessions);
+        console.log("current level", currentLevel);
         return () =>{isMounted = false};
     },[])
 
+    console.log("Sesiones",sessions);
+   
 
     const getColumns = (sessions) =>{
         const aux = [];
         sessions.forEach((session,index) =>{
             if(session[0].level == nivel){
                 aux.push(session[0]);
-                // setCurrentLevel([...currentLevel,session[0]])
             }
         })
-
-        return aux;
+      return setCurrentLevel([...currentLevel,aux]);
     }
- 
+   
 
     return(
         <Layout>
             <Content>
-                <ListSessions sessions={currentLevel}/>
+                <ListSessions currentLevel={currentLevel}/>
             </Content>
            
         </Layout>
