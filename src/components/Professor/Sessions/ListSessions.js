@@ -9,31 +9,7 @@ import './ListSessions.scss';
 export default function ListSessions(props){
     const {sessions} = props;
     const {colegio,estudiante,username,game,nivel} = useParams();
-    const [currentLevel,setCurrentLevel] = useState([]);
-   
 
-    // useEffect(()=>{
-    //     let isMounted = true;
-    //     // getColumns(sessions)
-    //     sessions.forEach((session,index) =>{
-    //         if(session[0].level == nivel){
-    //             //aux.push(session[0]);
-    //             console.log("Del nivel",session[0]);
-    //             setCurrentLevel([...currentLevel,session[0]])
-    //         }
-    //     })
-
-    //     return () =>{isMounted = false};
-    // },[])
-
-    // currentLevel[0].parameters.forEach(par =>{
-    //     const c = {
-    //         title: par.name,
-    //         dataIndex: par.name,
-    //         key: par.name
-    //     }
-    //     columns.push(c);
-    // })
 
 
     const getColumns = (sessions) =>{
@@ -59,8 +35,6 @@ export default function ListSessions(props){
                 sw = false;
             }
         })
-        
-        console.log(columns);
         return columns;
     }
 
@@ -95,8 +69,6 @@ export default function ListSessions(props){
             </Button>
 
             <Table dataSource={info(sessions)} columns={getColumns(sessions)}/>
-            {/* <Table columns={getColumns(sessions)}/> */}
-
         </div>
     )
 }
