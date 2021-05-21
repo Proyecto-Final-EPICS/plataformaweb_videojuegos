@@ -45,7 +45,7 @@ export default function SelectLevel(props){
              {renderOptions}
             </Select>
 
-            <Link to={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones/nivel-${option}`}>
+            <Link to={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/nivel-${option}`}>
                 <Button type="primary">
                     Ir
                 </Button>
