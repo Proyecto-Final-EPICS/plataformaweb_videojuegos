@@ -1,148 +1,131 @@
 //Liberias
-import React,{useState,useEffect} from 'react';
-import { Form, Input,  Button, Row, Col, notification} from 'antd';
-import {  UserOutlined, FileOutlined, LockOutlined } from '@ant-design/icons';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Button, Row, Col, notification } from 'antd';
+import { UserOutlined, FileOutlined, LockOutlined } from '@ant-design/icons';
 
 
 //Api
-import {addStudent} from '../../../../api/colegio'
+import { addStudent } from '../../../../api/colegio'
 
 //Estilos
 import './AddStudentForm.scss'
 
 
-
-export default function AddStudentForm(props){
-    const {setIsVisibleModal,colegio,setReloadStudents} = props;
-    const [userData, setUserData] = useState({
-        schoolName: colegio,
-        students: null
-    });
-
-    const [students, setStudents] = useState({
-        students:{
-            studentName: "",
-            age: "",
-            username: "",
-            password: ""
-        }
-    })
-
-    
-   useEffect(()=>{
-        let isMounted = true;
-        setUserData({...userData, schoolName: colegio})
-        return () =>{isMounted = false};
-   },[])
-
-    const addUser = event => {
-        if ( !students.studentName || !students.password  || !students.age || !students.username) {
-            notification.error({message:"Todos los campos son obligadorios"});
-        } else if (userData.password !== userData.repeatPassword) {
-            notification.error({message:"Las contraseñas tienen que ser iguales"})
-        } else {
-            addStudent(userData)
-            .then(response => {
-                notification["success"]({message: response});
-                setIsVisibleModal(false);
-                setReloadStudents(true);
-                // setReloadUsers(true);
-                setUserData({});//Resetear el formulario
-
-            })
-            .catch(err => {
-                notification.error({message: err});
-            });
-        }
+export default function AddStudentForm(props) {
+    const { setIsVisibleModal, colegio, setReloadStudents } = props;
+    const [form] = Form.useForm();
+    const infoStudent = {
+        studentName: { span: 16 },
+        age: { span: 16 },
+        username: { span: 16 },
+        password: { span: 16 }
     }
 
-    return(
-        <div className="add-user-form">
-            <AddForm
-                userData={userData}
-                setUserData={setUserData}
-                students={students}
-                setStudents={setStudents}
-                addUser={addUser}
-            />
-        </div>
-    );
-}
-
-
-function AddForm(props){
-    const { userData, setUserData, addUser,students,setStudents } = props;
-
-    const changeForm = e =>{
-        setStudents({...students, [e.target.name]: e.target.value})
-        setUserData({
-            ...userData,
-            ['students']:students
+    const onFinish = (values) => {
+        const datos = {
+            schoolName: colegio,
+            students: values
+        }
+        console.log('Success:', datos);
+        addStudent(datos).then(response => {
+            notification.success({ message: response });
+            setIsVisibleModal(false);
+            setReloadStudents(true);
+            form.resetFields();
+        }).catch(err => {
+            notification.error({ message: err });
         });
-    }
+    };
 
-    
-    return(
-        <Form className="form-add" onChange={changeForm} onFieldsChange={addUser}> 
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+        notification.error({ message: "Todos los campos son obligatorios" });
+        form.resetFields();
+    };
 
-            <Row gutter={24}>  
-                <Col span={12}>
-                    <Form.Item>
-                        <Input
-                            prefix={<UserOutlined/>}
-                            placeholder="Nombre"
+    return (
+        <div className="add-user-form">
+            <Form className="form-add"
+                form={form}
+                {...infoStudent}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                initialValues={{}}>
+
+                <Row gutter={24}>
+                    <Col span={12}>
+                        <Form.Item
                             name="studentName"
-                            // value={userData.studentName}
-                            // onChange={e => setUserData({...userData, studentName: e.target.value})}
-                        />
-                    </Form.Item>
-                </Col>
-                <Col span={12}>
-                    <Form.Item>
-                        <Input
-                            type="number"
-                            prefix={<FileOutlined/>}
-                            placeholder="Edad"
-                            name="age"
-                            // value={userData.age}
-                            // onChange={e => setUserData({...userData, age: e.target.value})}
-                        />
-                    </Form.Item>
-                </Col>
-            </Row>
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Por favor introduce el nombre del estudiante!',
+                                },
+                            ]}>
+                            <Input
+                                prefix={<UserOutlined />}
+                                placeholder="Nombre"
+                            />
+                        </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                        <Form.Item name="age"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Por favor introduce la edad!',
+                                },
+                            ]}>
+                            <Input
+                                type="number"
+                                prefix={<FileOutlined />}
+                                placeholder="Edad"
+                            />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-            <Row gutter={24}>  
-                
-                <Col span={12}>
-                    <Form.Item>
-                        <Input
-                            type="text"
-                            prefix={<UserOutlined />}
-                            placeholder="Usuario"
-                            name="username"
-                            // value={userData.username}
-                            // onChange={e => setUserData({...userData, username: e.target.value})}
-                        />
-                    </Form.Item>
-                </Col>
-                <Col span={12}>
-                    <Form.Item>
-                        <Input
-                            type="password"
-                            prefix={<LockOutlined />}
-                            placeholder="Contraseña"
-                            name="password"
-                            // value={userData.password}
-                            // onChange={e => setUserData({...userData, password: e.target.value})}
-                        />
-                    </Form.Item>
-                </Col>
-            </Row>
-            <Form.Item>
-                <Button type="primary" htmlType="submit" className="btn-submit">
-                   Agregar estudiante
+                <Row gutter={24}>
+                    <Col span={12}>
+                        <Form.Item name="username"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Por favor introduce un usuario!',
+                                },
+                            ]}
+                        >
+                            <Input
+                                type="text"
+                                prefix={<UserOutlined />}
+                                placeholder="Usuario"
+                                name="username"
+                            />
+                        </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                        <Form.Item name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Por favor introduce una contraseña!',
+                                },
+                            ]}>
+                            <Input
+                                type="password"
+                                prefix={<LockOutlined />}
+                                placeholder="Contraseña"
+                                name="password"
+                            />
+                        </Form.Item>
+                    </Col>
+                </Row>
+                <Form.Item>
+                    <Button type="primary" htmlType="submit" className="btn-submit">
+                        Agregar estudiante
                 </Button>
-            </Form.Item>
-        </Form>
+                </Form.Item>
+            </Form>
+        </div>
     );
 }
