@@ -7,16 +7,24 @@ import {Link,useParams} from 'react-router-dom';
 import './ListSessions.scss';
 
 export default function ListSessions(props){
-    const {sessions,currentLevel} = props;
-    //console.log(currentLevel);
+    const {sessions} = props;
     const {colegio,estudiante,username,game,nivel} = useParams();
-    const columns = [
-        {
-            title: "Nro de Sesión",
-            dataIndex: "nro_de_sesion",
-            key:"nro_de_sesion"
-        }
-    ]
+    const [currentLevel,setCurrentLevel] = useState([]);
+   
+
+    // useEffect(()=>{
+    //     let isMounted = true;
+    //     // getColumns(sessions)
+    //     sessions.forEach((session,index) =>{
+    //         if(session[0].level == nivel){
+    //             //aux.push(session[0]);
+    //             console.log("Del nivel",session[0]);
+    //             setCurrentLevel([...currentLevel,session[0]])
+    //         }
+    //     })
+
+    //     return () =>{isMounted = false};
+    // },[])
 
     // currentLevel[0].parameters.forEach(par =>{
     //     const c = {
@@ -27,26 +35,52 @@ export default function ListSessions(props){
     //     columns.push(c);
     // })
 
+    console.log("Current",currentLevel);
+
+    const getColumns = (sessions) =>{
+        const columns = [
+            {
+                title: "Nro de Sesión",
+                dataIndex: "nro_de_sesion",
+                key:"nro_de_sesion"
+            }
+        ]
+
+        sessions.forEach((session,index) =>{
+            if(session[0].level == nivel){
+                session[0].parameters.forEach(par =>{
+                    const c = {
+                        title: par.name,
+                        dataIndex: par.name,
+                        key: par.name
+                    }
+                    columns.push(c);
+                })
+            }
+        })
+       
+        return columns;
+    }
 
  
-    
 
-    const info = (sessions) =>{
-        const dataSource = []
-        sessions.forEach((session,index) => {
-            const data = {
-                key:0,
-                nro_de_sesion: index          
-            }
-            data.key = index;
-            data.nro_de_sesion = index + 1;
-            data.juego = session.Game.nameGame;
-            data.nro_de_fallas = session.Game.levels[0].parameters[0].value;
-            data.tiempo_de_nivel = session.Game.levels[0].parameters[1].value;
-            dataSource.push(data);
-        })
-        return dataSource;
-    }
+
+    // const info = (sessions) =>{
+    //     const dataSource = []
+    //     sessions.forEach((session,index) => {
+    //         const data = {
+    //             key:0,
+    //             nro_de_sesion: index          
+    //         }
+    //         data.key = index;
+    //         data.nro_de_sesion = index + 1;
+    //         data.juego = session.Game.nameGame;
+    //         data.nro_de_fallas = session.Game.levels[0].parameters[0].value;
+    //         data.tiempo_de_nivel = session.Game.levels[0].parameters[1].value;
+    //         dataSource.push(data);
+    //     })
+    //     return dataSource;
+    // }
 
     return(
 
@@ -56,7 +90,7 @@ export default function ListSessions(props){
             </Button>
 
             {/* <Table dataSource={info(sessions)} columns={columns}/> */}
-            <Table columns={columns}/>
+            <Table columns={getColumns(sessions)}/>
 
         </div>
     )

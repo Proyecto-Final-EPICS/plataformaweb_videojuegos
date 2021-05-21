@@ -64,11 +64,11 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                 component: Menu_Cards,
                 exact: true
             },
-            {
-                path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/sesiones",
-                component: Estudiante,
-                exact: true
-            },
+            // {
+            //     path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/sesiones",
+            //     component: Estudiante,
+            //     exact: true
+            // },
             {
                 path:"/home/colegios/:colegio/estudiantes/:estudiante-:username/:game/nivel-:nivel",//Revisara acá
                 component: Estudiante,
