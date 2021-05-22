@@ -1,7 +1,7 @@
 //Librerias
 import React,{useState,useEffect} from 'react';
 import Chart from "react-apexcharts";
-import {Select} from "antd";
+import {Select,Button} from "antd";
 
 //Estilo
 import './Grafico.scss';
@@ -24,7 +24,7 @@ export default function Grafico(){
     const [series,setSeries] = useState([
         {
           name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
+          data: [1.5,2.3,4.5]
         }
       ]);
 
@@ -36,6 +36,9 @@ export default function Grafico(){
                     <Option key="b">Parametro B</Option>
                     <Option key="c">Parametro C</Option>
                 </Select>
+                <Button>
+
+                </Button>
             </div>
             
             <div className="grafico__mixed-chart">
