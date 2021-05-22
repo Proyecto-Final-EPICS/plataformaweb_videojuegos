@@ -6,7 +6,8 @@ import {Select,Button} from "antd";
 //Estilo
 import './Grafico.scss';
 
-export default function Grafico(){
+export default function Grafico(props){
+    console.log(props);
     const {Option} = Select;
     const [options,setOptions] = useState(
         {
