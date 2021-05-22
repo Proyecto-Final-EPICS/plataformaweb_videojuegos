@@ -1,0 +1,18 @@
+@import '../../../scss/index.scss';
+
+
+.grafico{
+
+    &__selector{
+        margin-bottom: 10%;
+
+        &__select{
+            width: 120px;
+        }
+    }
+
+    &__mixed-chart{
+        margin: -22px;
+    }
+}
+

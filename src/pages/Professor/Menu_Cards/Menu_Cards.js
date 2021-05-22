@@ -67,9 +67,9 @@ export default function Menu_Cards(){
                 </Col>
             </Row>
 
-            <Row gutter={16}>
+            <Row gutter={24}>
 
-                <Col span={8}>
+                <Col span={12}>
                     {/* <Link to ={`/home/colegios/${colegio}/estudiantes/${estudiante}-${username}/${game}/sesiones`}> */}
                         <div className="content-menu__card" onClick={selectLevelModal}>
                             <div className="content-menu__card__imagen">
@@ -82,7 +82,7 @@ export default function Menu_Cards(){
                     {/* </Link> */}
                 </Col>
 
-                <Col span={8}>
+                <Col span={12}>
                     <div className="content-menu__card">
                         <div className="content-menu__card__imagen">
                             <img src={Consejo}/>
@@ -93,7 +93,7 @@ export default function Menu_Cards(){
                     </div>
                 </Col>
 
-                <Col span={8}>
+                {/* <Col span={8}>
                     <div className="content-menu__card">
                         <div className="content-menu__card__imagen">
                             <img src={Grafico}/>
@@ -102,7 +102,7 @@ export default function Menu_Cards(){
                             <span>Puntaje Global</span>
                         </div>
                     </div>
-                </Col>
+                </Col> */}
 
             </Row>
         </div>

@@ -3,6 +3,10 @@ import React,{useState,useEffect} from 'react';
 import {List,Table,Button} from 'antd';
 import {Link,useParams} from 'react-router-dom';
 
+//Componentes
+import Modal from '../../../components/Modal';
+import Grafico from '../../../components/Professor/Grafico';
+
 //Estilos
 import './ListSessions.scss';
 
@@ -10,6 +14,10 @@ export default function ListSessions(props){
     const {sessions} = props;
     const {colegio,estudiante,username,game,nivel} = useParams();
 
+    //Constantes para el modal
+    const [isVisibleModal,setIsVisibleModal] = useState(false);
+    const [modalTitle,setModalTitle] = useState("");
+    const [modalContent,setModalContent] = useState(null);
 
 
     const getColumns = (sessions) =>{
@@ -61,10 +69,26 @@ export default function ListSessions(props){
         return dataSource;
     }
 
+    const grafico = ()=>{
+        setIsVisibleModal(true);
+        setModalTitle("Seleccione un parámetro");
+        setModalContent(  
+          <Grafico/>
+        )
+    }
+
     return(
 
         <div className="nivel-content">
-            <Button className="nivel-content__button">
+            <Modal
+                title={modalTitle}
+                isVisible={isVisibleModal}
+                setIsVisible={setIsVisibleModal}
+            >
+                {modalContent}
+            </Modal>
+            
+            <Button className="nivel-content__button" onClick={grafico}>
               Gráficos del nivel
             </Button>
 
