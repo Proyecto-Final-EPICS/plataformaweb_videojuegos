@@ -30,7 +30,7 @@ export default function Grafico(props){
             id: "basic-bar"
         },
         xaxis: {
-            categories: [1,2,3,4,5,6,7]
+            categories: []
         }
     }
     
@@ -62,9 +62,9 @@ export default function Grafico(props){
             }
         });
 
-        // series[0].data.forEach((s,index) =>{
-        //     options.xaxis.categories.push(index+1)
-        // })
+        series[0].data.forEach((s,index) =>{
+            options.xaxis.categories.push(index+1)
+        })
 
         console.log(options);
         setIsVisibleModal(true);
