@@ -2,53 +2,107 @@
 import React,{useState,useEffect} from 'react';
 import Chart from "react-apexcharts";
 import {Select,Button} from "antd";
+import { BarChartOutlined } from '@ant-design/icons';
+
+//Componentes
+import Modal from '../../Modal';
 
 //Estilo
 import './Grafico.scss';
 
 export default function Grafico(props){
-    console.log(props);
+    const {parameters} = props;
+    const [option,setOption] = useState(parameters[0].name);
+    const [reloadGrafica,setReloadGrafica] = useState(false);
     const {Option} = Select;
-    const [options,setOptions] = useState(
+    const [ejeX,setEjeX] = useState(null);
+    const [ejeY,setEjeY] = useState(null);
+
+    //Constantes para el modal
+    const [isVisibleModal,setIsVisibleModal] = useState(false);
+    const [modalTitle,setModalTitle] = useState("");
+    const [modalContent,setModalContent] = useState(null);
+
+
+
+    const options ={
+        chart: {
+            id: "basic-bar"
+        },
+        xaxis: {
+            categories: [1,2,3,4,5,6,7]
+        }
+    }
+    
+
+    const series=[
         {
-            options: {
-              chart: {
-                id: "basic-bar"
-              },
-              xaxis: {
-                categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-              }
+          name: "Sesion",
+          data: []
+        }
+    ]
+
+
+
+    //Para para extraer opciones del select
+    const renderOptions = parameters.map((p)=> {
+        return (<Option key={p.name}> {p.name}</Option>)
+    });
+
+    const handleChange = (value) =>{
+        setOption(value);
+    }
+
+
+    //Parte encargada de graficar la selección
+    const graficar = () =>{
+        parameters.forEach(par => {
+            if(par.name == option){
+                series[0].data = par.values
             }
-        }
-    );
+        });
 
-    const [series,setSeries] = useState([
-        {
-          name: "series-1",
-          data: [1.5,2.3,4.5]
-        }
-      ]);
+        // series[0].data.forEach((s,index) =>{
+        //     options.xaxis.categories.push(index+1)
+        // })
 
-    return(
-        <div className="grafico">
-            <div className="grafico__selector">
-                <Select className="grafico__selector__select">
-                    <Option key="a">Parametro A</Option>
-                    <Option key="b">Parametro B</Option>
-                    <Option key="c">Parametro C</Option>
-                </Select>
-                <Button>
-
-                </Button>
-            </div>
-            
-            <div className="grafico__mixed-chart">
-                <Chart
+        console.log(options);
+        setIsVisibleModal(true);
+        setModalTitle("Seleccione el Nivel");
+        setModalContent(
+            <Chart
                 options={options}
                 series={series}
                 type="bar"
                 width="500"
-                />
+            />
+        )
+    }
+
+ 
+
+    return(
+        <div className="grafico">
+
+            <Modal
+                title={modalTitle}
+                isVisible={isVisibleModal}
+                setIsVisible={setIsVisibleModal}
+            >
+                {modalContent}
+            </Modal>
+
+            <div className="grafico__selector">
+                <Select className="grafico__selector__select" onSelect={handleChange}>
+                    {renderOptions}
+                </Select>
+                <Button onClick={graficar}>
+                    <BarChartOutlined />
+                </Button>
+            </div>
+            
+            <div className="grafico__mixed-chart">
+                {/* <Grafica options={ejeX} series={ejeY}/> */}
             </div>
         </div>
         

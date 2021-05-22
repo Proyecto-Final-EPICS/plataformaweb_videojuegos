@@ -82,9 +82,7 @@ export default function ListSessions(props){
                 if(!Number.isNaN(parseInt(value)) || !Number.isNaN(parseFloat(value))){
                     p.values.push(value);
                 }else{
-                    console.log("antes",parameters)
                     parameters.splice(index, 1);
-                    console.log("despues",parameters)
                 }
             }
         }
