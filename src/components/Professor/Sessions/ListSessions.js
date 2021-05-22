@@ -18,6 +18,7 @@ export default function ListSessions(props){
     const [isVisibleModal,setIsVisibleModal] = useState(false);
     const [modalTitle,setModalTitle] = useState("");
     const [modalContent,setModalContent] = useState(null);
+    const parameters = [];
 
 
     const getColumns = (sessions) =>{
@@ -39,15 +40,13 @@ export default function ListSessions(props){
                         key: par.name
                     }
                     columns.push(c);
+                    parameters.push({ 'name': par.name, values: [] });
                 })
                 sw = false;
             }
         })
         return columns;
     }
-
- 
-
 
     const info = (sessions) =>{
         const dataSource = []
@@ -59,12 +58,12 @@ export default function ListSessions(props){
                     nro_de_sesion: it   
                 }
                 session[0].parameters.forEach(par =>{
-                    data[par.name] = par.value
+                    data[par.name] = par.value;
+                    addDataParameter(par.name, par.value);
                 })
                 dataSource.push(data);
                 it++;
-            }
-            
+            }  
         })
         return dataSource;
     }
@@ -73,7 +72,22 @@ export default function ListSessions(props){
         setIsVisibleModal(true);
         setModalTitle("Seleccione un parámetro");
         setModalContent(  
-          <Grafico/>
+          <Grafico parameters={parameters}/>
+        )
+    }
+
+    const addDataParameter = (parameter, value) => {
+        parameters.forEach((p,index) => {
+            if (p.name == parameter) {
+                if(!Number.isNaN(parseInt(value)) || !Number.isNaN(parseFloat(value))){
+                    p.values.push(value);
+                }else{
+                    console.log("antes",parameters)
+                    parameters.splice(index, 1);
+                    console.log("despues",parameters)
+                }
+            }
+        }
         )
     }
 
@@ -92,7 +106,7 @@ export default function ListSessions(props){
               Gráficos del nivel
             </Button>
 
-            <Table dataSource={info(sessions)} columns={getColumns(sessions)}/>
+            <Table columns={getColumns(sessions)} dataSource={info(sessions)} />
         </div>
     )
 }
