@@ -49,10 +49,14 @@ function Juego(props){
         
                         {/* <Link to ={`/home/colegios/${colegio.schoolName}`}> */}
                             <Button type="primary" className="card-juegos__button"> 
-                                Entrar
+                                Detalles
                                 {/* <CaretUpOutlined /> */}
                             </Button> 
                         {/* </Link> */}
+                        <Button type="primary" className="card-juegos__button"> 
+                                Ranking
+                                {/* <CaretUpOutlined /> */}
+                        </Button> 
                     </div>
                     
                 ]}

@@ -46,7 +46,11 @@ export default function Colegio_Games(){
                     </div>    
 
                     <div className="juego-contenido__header__col">
-                        <h1>Acción</h1>
+                        <h1>Detalles</h1>
+                    </div>
+
+                    <div className="juego-contenido__header__col">
+                        <h1>Ranking</h1>
                     </div>
                 </Header>
 
