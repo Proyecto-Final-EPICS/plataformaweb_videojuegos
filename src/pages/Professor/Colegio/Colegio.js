@@ -105,7 +105,5 @@ export default function Colegio(){
             </div>
             
         </Layout>
-        
-        
     );
 }

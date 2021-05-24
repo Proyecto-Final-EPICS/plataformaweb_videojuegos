@@ -16,6 +16,7 @@ import AdminProfessors from '../pages/Admin/Professors';
 import ProfessorHome from '../pages/Professor/ProfessorHome';
 import Colegios from '../pages/Professor/Colegios';
 import Colegio from '../pages/Professor/Colegio';
+import Colegio_Games from '../pages/Professor/Colegio_Games';
 import Estudiante from '../pages/Professor/Estudiante';//Es la info del estudiante en el juego
 import Students_Games from '../pages/Professor/Students_Games';
 import GamesStudent from '../pages/Professor/GamesStudent';
@@ -52,6 +53,11 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
             {
                 path: "/home/colegios/:colegio/estudiantes",
                 component: Colegio,
+                exact: true
+            },
+            {
+                path: "/home/colegios/:colegio/juegos",
+                component: Colegio_Games,
                 exact: true
             },
             {

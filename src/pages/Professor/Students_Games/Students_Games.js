@@ -26,7 +26,7 @@ export default function Students_Games(){
             </Link>
             
             <div className="content__card">
-                <Link to={`/home/colegios/${colegio}/estudiantes`}>
+                <Link to={`/home/colegios/${colegio}/juegos`}>
                     <div className="content__card__image">
                         <img src={Juegos}/>
                     </div>
