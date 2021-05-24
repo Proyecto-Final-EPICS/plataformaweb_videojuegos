@@ -90,9 +90,9 @@ export default function Colegio(){
                         <h1>Usuario</h1>
                     </div>  
 
-                    <div className="col-contenido__header__col">
+                    {/* <div className="col-contenido__header__col">
                         <h1>Editar</h1>
-                    </div>  
+                    </div>   */}
 
                     <div className="col-contenido__header__col">
                         <h1>Acción</h1>

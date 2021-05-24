@@ -72,9 +72,9 @@ function Student(props) {
                             {student.username}
                         </h1>
 
-                        <Button className="card__content-est__edit">
+                        {/* <Button className="card__content-est__edit">
                             <img src={Lapiz} className="card__content-est__edit__image" alt="icono de editar"/>
-                        </Button>
+                        </Button> */}
 
                         
                         <Link to ={`/home/colegios/${colegio}/estudiantes/${student.studentName}-${student.username}`} >

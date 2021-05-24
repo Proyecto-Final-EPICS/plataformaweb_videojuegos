@@ -36,9 +36,7 @@ export default function Grafico(props) {
       }
     },
     yaxis: {
-      title: {
-        text: 'Temperature'
-      }
+  
     }
   }
 
