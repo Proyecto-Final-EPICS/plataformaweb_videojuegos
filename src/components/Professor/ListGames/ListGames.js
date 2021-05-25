@@ -71,7 +71,7 @@ function Juego(props){
 
     const detalles = () =>{
         setIsVisibleModal(true);
-        setModalTitle("Seleccione el Nivel");
+        setModalTitle("Objetivos");
         setModalContent(
             <GameDetailsList
                 juego={juego}

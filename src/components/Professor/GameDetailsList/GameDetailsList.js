@@ -1,5 +1,6 @@
 //Liberias
 import React,{useState,useEffect} from 'react';
+import {Card} from 'antd';
 
 
 //Api
@@ -19,7 +20,20 @@ export default function GameDetailsList(props){
             setObjetivos(response);
         })
     },[reload])
+
+    const gridStyle = {
+        width: '25%',
+        textAlign: 'center',
+    };
+
+    const renderCards = objetivos.map(objetivo =>{
+        console.log(objetivo);
+        return (<Card key={objetivo}> {objetivo}</Card>)
+    });
+
     return(
-        <h1>Lista de objetivos {objetivos}</h1>
+        <div>
+            {renderCards}
+        </div>
     );
 }
