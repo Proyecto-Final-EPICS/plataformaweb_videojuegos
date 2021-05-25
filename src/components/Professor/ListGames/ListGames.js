@@ -1,6 +1,11 @@
 //Liberias
-import React from 'react';
+import React,{useState} from 'react';
 import {List,Button,Card} from 'antd';
+import {Link,useParams} from 'react-router-dom';
+
+//Componentes
+import Modal from '../../../components/Modal';
+import GameDetailsList from '../../../components/Professor/GameDetailsList';
 
 
 //Estilos
@@ -8,15 +13,39 @@ import './ListGames.scss';
 
 export default function ListGames(props){
     const {juegos} = props;
+    const [reload,setReload] = useState(false);
+
+    //Constantes para el modal
+    const [isVisibleModal,setIsVisibleModal] = useState(false);
+    const [modalTitle,setModalTitle] = useState("");
+    const [modalContent,setModalContent] = useState(null);
+
+
     return(
         <div className="list-juegos">
-            <Juegos juegos={juegos.name}/>
+            <Modal
+                title={modalTitle}
+                isVisible={isVisibleModal}
+                setIsVisible={setIsVisibleModal}
+             >
+             {modalContent}
+            </Modal>
+
+            <Juegos 
+                juegos={juegos.name}
+                setIsVisibleModal={setIsVisibleModal}
+                setModalTitle={setModalTitle}
+                setModalContent={setModalContent}
+                reload={reload}
+                setReload={setReload}
+            />
         </div>
     );
 }
 
 function Juegos(props){
-    const {juegos} = props;
+    const {juegos,setIsVisibleModal,setModalTitle,setModalContent,reload,setReload} = props;
+   
     return(
         
         <List
@@ -26,14 +55,32 @@ function Juegos(props){
             dataSource={juegos}
             renderItem={juego => <Juego
                 juego = {juego}
+                setIsVisibleModal={setIsVisibleModal}
+                setModalTitle={setModalTitle}
+                setModalContent={setModalContent}
+                reload={reload}
+                setReload={setReload}
             />}
         />
     );
 }
 
 function Juego(props){
-    const {juego} = props;
-    // console.log(colegio);
+    const {juego,setIsVisibleModal,setModalTitle,setModalContent,reload,setReload} = props;
+    const {colegio} = useParams();
+
+    const detalles = () =>{
+        setIsVisibleModal(true);
+        setModalTitle("Seleccione el Nivel");
+        setModalContent(
+            <GameDetailsList
+                juego={juego}
+                reload={reload}
+            />
+        )
+        setReload(!reload);
+    }
+    
     return(
         <Card className="card-juegos">
             <List.Item
@@ -47,16 +94,18 @@ function Juego(props){
                             {juego.topic}
                         </h1>
         
-                        {/* <Link to ={`/home/colegios/${colegio.schoolName}`}> */}
-                            <Button type="primary" className="card-juegos__button"> 
+                        {/* <Link to ={`/home/colegios/${colegio}/juegos/${juego.name}/detalles`}> */}
+                            <Button type="primary" className="card-juegos__button" onClick={detalles} > 
                                 Detalles
-                                {/* <CaretUpOutlined /> */}
                             </Button> 
                         {/* </Link> */}
-                        <Button type="primary" className="card-juegos__button"> 
+
+                        <Link to ={`/home/colegios/${colegio}/juegos/${juego.name}/ranking`}>
+                            <Button type="primary" className="card-juegos__button"> 
                                 Ranking
-                                {/* <CaretUpOutlined /> */}
-                        </Button> 
+                            </Button> 
+                        </Link>
+
                     </div>
                     
                 ]}

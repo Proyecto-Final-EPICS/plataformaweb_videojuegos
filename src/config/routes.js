@@ -20,6 +20,7 @@ import Colegio_Games from '../pages/Professor/Colegio_Games';
 import Estudiante from '../pages/Professor/Estudiante';//Es la info del estudiante en el juego
 import Students_Games from '../pages/Professor/Students_Games';
 import GamesStudent from '../pages/Professor/GamesStudent';
+import GameDetails from '../pages/Professor/GameDetails';
 import Menu_Cards from '../pages/Professor/Menu_Cards';
 import Graficos from '../pages/Professor/Graficos';
 
@@ -57,6 +58,21 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
             },
             {
                 path: "/home/colegios/:colegio/juegos",
+                component: Colegio_Games,
+                exact: true
+            },
+            {
+                path: "/home/colegios/:colegio/juegos/:juego",
+                component: Colegio_Games,
+                exact: true
+            },
+            {
+                path: "/home/colegios/:colegio/juegos/:juego/detalles",
+                component: GameDetails,
+                exact: true
+            },
+            {
+                path: "/home/colegios/:colegio/juegos/:juego/ranking",
                 component: Colegio_Games,
                 exact: true
             },

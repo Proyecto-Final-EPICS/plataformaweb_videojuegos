@@ -92,6 +92,27 @@ export function getGamesByColegio(name){
     })
 }
 
+//Endpoint para traer los objetivos de un juego dado el nombre del jiuego
+export function getObjectivesByGameApi(name){
+    const url = `${basePath}/GameObjectives?game=${name}`;
+    const params = {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    return fetch(url,params)
+    .then(response => {
+        return response.json()
+    })
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err.message;
+    })
+}
 
 //Endpoint para traer juegos dado un estudiante
 export function getGameByStudentApi(name){
