@@ -6,7 +6,7 @@ import {Link,useParams} from 'react-router-dom';
 //Componentes
 import Modal from '../../../components/Modal';
 import GameDetailsList from '../../../components/Professor/GameDetailsList';
-
+import GameRanking from '../../../components/Professor/GameRanking';
 
 //Estilos
 import './ListGames.scss';
@@ -81,6 +81,18 @@ function Juego(props){
         setReload(!reload);
     }
     
+
+    const ranking = () =>{
+        setIsVisibleModal(true);
+        setModalTitle("Ranking");
+        setModalContent(
+            <GameRanking
+                juego={juego}
+            />
+        )
+        // setReload(!reload);
+    }
+
     return(
         <Card className="card-juegos">
             <List.Item
@@ -100,11 +112,11 @@ function Juego(props){
                             </Button> 
                         {/* </Link> */}
 
-                        <Link to ={`/home/colegios/${colegio}/juegos/${juego.name}/ranking`}>
-                            <Button type="primary" className="card-juegos__button"> 
+                        {/* <Link to ={`/home/colegios/${colegio}/juegos/${juego.name}/ranking`}> */}
+                            <Button type="primary" className="card-juegos__button" onClick={ranking}> 
                                 Ranking
                             </Button> 
-                        </Link>
+                        {/* </Link> */}
 
                     </div>
                     

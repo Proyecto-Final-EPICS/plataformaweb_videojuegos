@@ -66,11 +66,6 @@ const routes = [//Es el sistema de rutas, el array contiene todas las rutas
                 exact: true
             },
             {
-                path: "/home/colegios/:colegio/juegos/:juego/ranking",
-                component: Colegio_Games,
-                exact: true
-            },
-            {
                 path:"/home/colegios/:colegio/estudiantes/:estudiante-:username",
                 component: GamesStudent,
                 exact: true

@@ -21,13 +21,9 @@ export default function GameDetailsList(props){
         })
     },[reload])
 
-    const gridStyle = {
-        width: '25%',
-        textAlign: 'center',
-    };
+   
 
     const renderCards = objetivos.map(objetivo =>{
-        console.log(objetivo);
         return (<Card key={objetivo}> {objetivo}</Card>)
     });
 
