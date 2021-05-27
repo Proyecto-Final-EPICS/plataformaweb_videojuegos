@@ -117,7 +117,7 @@ export function getObjectivesByGameApi(name){
 
 //Endpoint para traer el ranking de un juego en un colegio.
 export function getRankingGameBySchool(game,nameSchool){
-    const url = `${basePath}/GameStudentProcess?game=${game}&nameSchool=${nameSchool}`;
+    const url = `${basePath}/GameStudentProcess?game=${game.name}&nameSchool=${nameSchool}`;
     const params = {
         method: 'GET',
         headers: {
@@ -161,7 +161,6 @@ export function getGameByStudentApi(name){
 
 //Endpoint para agregar un estudiante
 export function addStudent(info){
-    console.log(info);
     const data = {
         schoolName: info.schoolName,
         students:{

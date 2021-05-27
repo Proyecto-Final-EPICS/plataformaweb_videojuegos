@@ -88,9 +88,10 @@ function Juego(props){
         setModalContent(
             <GameRanking
                 juego={juego}
+                reload={reload}
             />
         )
-        // setReload(!reload);
+        setReload(!reload);
     }
 
     return(
