@@ -48,6 +48,28 @@ export function getColegiosByProfessorApi(name){
 }
 
 
+//Endpoint para traer el último puntaje de un estudiante 
+export function getLastSession(game,name){
+    const url = `${basePath}/LastSessionStudentGame?game=${game}&username=${name}`
+    const params = {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    
+    return fetch(url,params)
+    .then(response => {
+        return response.json();
+    })
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err.message;
+    })
+}
+
 //Endpoint para traer estudiantes dado un nombre
 export function getEstudiantesByColegio(name){
     const url = `${basePath}/student?nameSchool=${name}`;

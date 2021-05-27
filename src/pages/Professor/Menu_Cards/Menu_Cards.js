@@ -7,6 +7,7 @@ import {Link,useParams} from 'react-router-dom';
 //Componentes
 import Modal from '../../../components/Modal';
 import SelectLevel from '../../../components/Professor/SelectLevel';
+import Recomendacion from '../../../components/Professor/Recomendacion';
 
 //Estilos
 import './Menu_Cards.scss';
@@ -18,6 +19,7 @@ import Grafico from '../../../assets/icons/analytics.png';
 
 export default function Menu_Cards(){
     const {colegio,estudiante,username,game} = useParams();
+   
 
     //Constantes para el modal
     const [isVisibleModal,setIsVisibleModal] = useState(false);
@@ -39,10 +41,19 @@ export default function Menu_Cards(){
         )
     }
 
+    const recomendacionModal = () =>{
+        setIsVisibleModal(true);
+        setModalTitle("Recomendaciones");
+        setModalContent(
+            <Recomendacion
+                game={game}
+                username={username}
+                estudiante={estudiante}
+            />
+        )
+    }
+
     return(
-
-
-
         <div className="content-menu">
 
             <Modal
@@ -83,7 +94,7 @@ export default function Menu_Cards(){
                 </Col>
 
                 <Col span={12}>
-                    <div className="content-menu__card">
+                    <div className="content-menu__card" onClick={recomendacionModal}>
                         <div className="content-menu__card__imagen">
                             <img src={Consejo}/>
                         </div>
